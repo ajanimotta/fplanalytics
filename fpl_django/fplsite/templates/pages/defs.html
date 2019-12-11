@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<!--
+	Urban by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		{% load static %}
+		<title>Defenders - FPL Analytics by Ajani Motta</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link href="{% static 'css/main.css' %}" rel="stylesheet" type="text/css" />
+		<link href= 'http://cdn.pydata.org/bokeh/release/bokeh-1.4.0.min.css' rel='stylesheet' type='text/css'>
+		<link href='http://cdn.pydata.org/bokeh/release/bokeh-widgets-1.4.0.min.css' rel='stylesheet' type='text/css'>
+		<script src='http://cdn.pydata.org/bokeh/release/bokeh-1.4.0.min.js'></script>
+		<script src='http://cdn.pydata.org/bokeh/release/bokeh-widgets-1.4.0.min.js'></script>
+		<!-- ROI SCRIPT-->
+		{{ roi_script | safe }}
+		<!-- HOME/AWAY SCRIPT-->
+		{{ home_away_script | safe }}
+		<!-- STRONG/WEAK SCRIPT-->
+		{{ strong_weak_script | safe }}
+		<!-- IN FORM/OUT OF FORM SCRIPT-->
+		{{ form_script | safe }}
+	</head>
+	<body class="subpage">
+
+		<!-- Header -->
+		<header id="header">
+			<div class="logo"><a href="index.html">FPL Analytics <span>by Ajani Motta</span></a></div>
+			<a href="#menu">Menu</a>
+		</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="teams.html">Teams</a></li>
+					<li><a href="gkps.html">Goalkeepers</a></li>
+					<li><a href="mids.html">Midfielders</a></li>
+					<li><a href="fwds.html">Forwards</a></li>
+				</ul>
+			</nav>
+
+		<!-- Main -->
+			<div id="main">
+
+				<!-- Section: RETURN ON INVESTMENT (ROI)-->
+				<section class="wrapper style1">
+					<div class="inner">
+						<header class="align-center">
+							<h1>Defenders</h1>
+							<p>Craft your starting defense with these useful metrics!</p>
+						</header>
+						<div class="flex flex-2">
+							<div class="col col2">
+								<h3>Return on Investment</h3>
+								<p>See which defenders provide the best bang for your buck!</p>
+								{{ roi_div | safe }}
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Section: HOME/AWAY FORM-->
+				<section class="wrapper style1">
+					<div class="inner">
+						<div class="flex flex-2">
+							<div class="col col2">
+								<h3>Home vs. Away Form</h3>
+								<p>See who performs at their best with(out) the home crowd's support!</p>
+								{{ home_away_div | safe }}
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Section: TOP PERFORMERS AGAINST STRONG/WEAK OPPONENTS-->
+				<section class="wrapper style1">
+					<div class="inner">
+						<div class="flex flex-2">
+							<div class="col col2">
+								<h3>Top Performers: Strength of Opposition</h3>
+								<p>See who steps up against stronger/weaker opponents!</p>
+								{{ strong_weak_div | safe }}
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Section: IN FORM/OUT OF FORM-->
+				<section class="wrapper style1">
+						<div class="inner">
+							<div class="flex flex-2">
+								<div class="col col2">
+									<h3>In Form vs. Out of Form Defenders</h3>
+									<p>See which defenders are in top form (plus those who have lost their touch)!</p>
+									{{ form_div | safe }}
+								</div>
+							</div>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="copyright">
+					<ul class="icons">
+							<li><a href="https://amotta11003.github.io/" class="icon fa-briefcase"><span class="label">Personal Site</span></a></li> 
+							<li><a href="https://www.linkedin.com/in/ajani-motta-aa3b03113/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+							<li><a href="https://github.com/amotta11003" class="icon brands fa-github"><span class="label">Github</span></a></li>
+					</ul>
+					<p>Images: <a href="https://www.premierleague.com/photos">Premier League</a>. Design: <a href="https://templated.co">TEMPLATED</a>.</p>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="{% static 'js/jquery.min.js' %}"></script>
+			<script src="{% static 'js/jquery.scrolly.min.js' %}"></script>
+			<script src="{% static 'js/jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'js/skel.min.js' %}"></script>
+			<script src="{% static 'js/util.js' %}"></script>
+			<script src="{% static 'js/main.js' %}"></script>
+
+	</body>
+</html>

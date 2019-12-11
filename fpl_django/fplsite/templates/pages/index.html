@@ -1,0 +1,156 @@
+<!DOCTYPE HTML>
+<!--
+	Urban by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+        {% load static %}
+		<title>FPL Analytics by Ajani Motta</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link href="{% static 'css/main.css' %}" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header" class="alt">
+				<div class="logo"><a href="index.html">FPL Analytics <span>by Ajani Motta</span></a></div>
+				<a href="#menu">Menu</a>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="teams.html">Teams</a></li>
+					<li><a href="players.html">All Players</a></li>
+					<li><a href="gkps.html">Goalkeepers</a></li>
+					<li><a href="defs.html">Defenders</a></li>
+					<li><a href="mids.html">Midfielders</a></li>
+					<li><a href="fwds.html">Forwards</a></li>
+				</ul>
+			</nav>
+
+		<!-- Banner -->
+			<section id="banner">
+				<div class="inner">
+					<header>
+						<h1>Your hub for FPL Analytics</h1>
+						<p>Gain a leg up on your competition<br />using data-driven metrics to guide your next FPL move!</p>
+					</header>
+					<a href="#main" class="button big scrolly">Learn More</a>
+				</div>
+			</section>
+
+		<!-- Main -->
+			<div id="main">
+
+				<!-- Section -->
+					<section class="wrapper style1">
+						<div class="inner">
+							<header class="align-center">
+								<h2>Guide your analysis by team or position!</h2>
+							</header>
+							<div class="flex flex-3">
+								<div class="col align-center">
+									<div class="image round fit">
+										<a href="teams.html">
+											<img src="{% static 'images/everton.jpg' %}" alt="" />
+											<div class="overlay">
+												<div class="text">Teams</div>
+											</div>
+										</a>
+									</div>
+									<a href="teams.html" class="button">Teams</a>
+								</div>
+								<div class="col align-center">
+									<div class="image round fit">
+										<a href="players.html">
+											<img src="{% static 'images/allplayers.jpeg' %}" alt="" />
+											<div class="overlay">
+												<div class="text">All Players</div>
+											</div>
+										</a>
+									</div>
+									<a href="teams.html" class="button">All Players</a>
+								</div>
+								<div class="col align-center">
+									<div class="image round fit">
+										<a href="gkps.html">
+											<img src="{% static 'images/ederson.jpg' %}" alt="" />
+											<div class="overlay">
+												<div class="text">Goalkeepers</div>
+											</div>
+										</a>
+									</div>
+									<a href="gkps.html" class="button">Goalkeepers</a>
+								</div>
+							</div>
+						</div>
+					</section>
+
+				<!-- Section -->
+					<section class="wrapper style1">
+						<div class="inner">
+							<div class="flex flex-3">
+								<div class="col align-center">
+									<div class="image round fit">
+										<a href="defs.html">
+											<img src="{% static 'images/vdrob.jpg' %}" alt="" />
+											<div class="overlay">
+												<div class="text">Defenders</div>
+											</div>
+										</a>
+									</div>
+									<a href="defs.html" class="button">Defenders</a>
+								</div>
+								<div class="col align-center">
+									<div class="image round fit">
+										<a href="mids.html">
+											<img src="{% static 'images/pepe.jpeg' %}" alt="" />
+											<div class="overlay">
+												<div class="text">Midfielders</div>
+											</div>
+										</a>
+									</div>
+									<a href="mids.html" class="button">Midfielders</a>
+								</div>
+								<div class="col align-center">
+									<div class="image round fit">
+										<a href="fwds.html">
+											<img src="{% static 'images/abraham.jpg' %}" alt="" />
+											<div class="overlay">
+												<div class="text">Forwards</div>
+											</div>
+										</a>
+									</div>
+									<a href="fwds.html" class="button">Forwards</a>
+								</div>
+							</div>
+						</div>
+					</section>
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="copyright">
+					<ul class="icons">
+							<li><a href="https://amotta11003.github.io/" class="icon fa-briefcase"><span class="label">Personal Site</span></a></li> 
+							<li><a href="https://www.linkedin.com/in/ajani-motta-aa3b03113/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+							<li><a href="https://github.com/amotta11003" class="icon brands fa-github"><span class="label">Github</span></a></li>
+					</ul>
+					<p>Images: <a href="https://www.premierleague.com/photos">Premier League</a>. Design: <a href="https://templated.co">TEMPLATED</a>.</p>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="{% static 'js/jquery.min.js' %}"></script>
+			<script src="{% static 'js/jquery.scrolly.min.js' %}"></script>
+			<script src="{% static 'js/jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'js/skel.min.js' %}"></script>
+			<script src="{% static 'js/util.js' %}"></script>
+			<script src="{% static 'js/main.js' %}"></script>
+
+	</body>
+</html>
