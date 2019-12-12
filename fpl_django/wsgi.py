@@ -8,6 +8,7 @@ https://docs.djangoproject.com/en/2.2/howto/deployment/wsgi/
 """
 
 import os
+print("CURRENT DIRECTORY: ", os.getcwd())
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "fpl_django.settings")
 
 # This application object is used by the development server
