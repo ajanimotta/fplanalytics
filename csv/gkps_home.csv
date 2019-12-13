@@ -1,0 +1,19 @@
+web_name,id,avg_minutes,avg_points,team_name,cost,selected_by_percent,color,range
+Adrián,526,52.875,1.125,Liverpool,4.2,2.7,darkgreen,Less than 4.5
+Dubravka,262,90.0,3.875,Newcastle,5.0,1.2,gold,5.0 to 5.4
+Ederson,212,90.0,3.5,Man City,6.0,14.7,red,6.0 and over
+Foster,366,90.0,4.375,Watford,4.8,2.0,lime,4.5 to 4.9
+Guaita,131,78.75,4.375,Crystal Palace,5.0,1.9,gold,5.0 to 5.4
+Gunn,319,56.25,1.125,Southampton,4.4,2.0,darkgreen,Less than 4.5
+Heaton,94,90.0,3.375,Aston Villa,4.5,5.3,lime,4.5 to 4.9
+Henderson (SHU),471,78.75,3.75,Sheffield Utd,4.7,7.5,lime,4.5 to 4.9
+Kepa,111,90.0,3.375,Chelsea,5.5,5.7,orange,5.5 to 5.9
+Krul,280,78.75,3.25,Norwich,4.5,2.2,lime,4.5 to 4.9
+Leno,14,90.0,3.875,Arsenal,5.0,5.7,gold,5.0 to 5.4
+Patrício,411,90.0,4.625,Wolves,5.2,11.7,gold,5.0 to 5.4
+Pickford,148,90.0,3.375,Everton,5.4,7.2,gold,5.0 to 5.4
+Pope,93,90.0,4.375,Burnley,4.7,14.6,lime,4.5 to 4.9
+Ramsdale,494,90.0,3.5,Bournemouth,4.6,3.9,lime,4.5 to 4.9
+Ryan,47,90.0,3.375,Brighton,4.8,17.5,lime,4.5 to 4.9
+Schmeichel,168,90.0,4.25,Leicester,5.4,15.1,gold,5.0 to 5.4
+de Gea,235,90.0,4.125,Man Utd,5.5,13.0,orange,5.5 to 5.9
