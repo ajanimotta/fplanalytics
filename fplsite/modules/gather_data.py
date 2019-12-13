@@ -587,5 +587,5 @@ def advanced_team():
 # team_stats = advanced_team()
 
 #UPDATE TEAM_RATINGS_DF --> then call get_team_ratings
-fixtures = get_fixtures()
-ratings = team_rating(fixtures)
+#fixtures = get_fixtures()
+#ratings = team_rating(fixtures)
