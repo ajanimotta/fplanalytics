@@ -47,13 +47,13 @@ def fpl_player_to_csv():
     # creativity, threat, bonus, bps, ict_index, clean_sheets, red_cards, yellow_cards, selected_by_percent, now_cost
     # , team_name, position)
 
-    f = open("fpl_django/csv/cleaned_players.csv", "r")
+    f = open("csv/cleaned_players.csv", "r")
     player_stats_df = pd.read_csv(f)
     player_stats_df = player_stats_df[['first_name', 'second_name', 'goals_scored', 'assists', 'total_points', 'minutes',
     'goals_conceded', 'clean_sheets', 'red_cards', 'yellow_cards', 'bonus', 'selected_by_percent', 'now_cost']]
 
     # Build dataframe containing info (id, team, web_name)
-    f1 = open("fpl_django/csv/players_raw.csv", "r")
+    f1 = open("csv/players_raw.csv", "r")
     raw_player_df = pd.read_csv(f1)
     raw_player_df = raw_player_df[['id', 'team', 'web_name', 'form']]
 
@@ -90,7 +90,7 @@ def fpl_player_to_csv():
         player_fpl_df.at[i, 'team_abbr'] = team_abbr
         player_fpl_df.at[i, 'position'] = position_data[(web_name, team_name, str(points))]
 
-    player_fpl_df.to_csv('fpl_django/csv/player_fpl.csv', index = False)
+    player_fpl_df.to_csv('csv/player_fpl.csv', index = False)
 #%%
 # Build FPL_PLAYER dataframe from fpl_player.csv 
 def fpl_player():
@@ -220,7 +220,7 @@ def team_rating(fixtures):
             return 6
     final_team_fixtures_df['binned_rating'] = final_team_fixtures_df['rating_standardized'].apply(lambda x : bin_rating(x))
     
-    final_team_fixtures_df.to_csv('fpl_django/csv/team_ratings.csv', index = False)
+    final_team_fixtures_df.to_csv('csv/team_ratings.csv', index = False)
 
     return final_team_fixtures_df
 
@@ -303,7 +303,7 @@ def whoscored_all_players_to_csv(section):
             break
         time.sleep(5)
         next_link.click()
-    section_df.to_csv('fpl_django/csv/%s_players.csv' % section, index = False)
+    section_df.to_csv('csv/%s_players.csv' % section, index = False)
     return section_df
 
 #%%
@@ -406,7 +406,6 @@ def merge_advanced_player():
 def get_players():
     players = fpl_player()
     understat_player_df = understat_player()
-    #advanced_player_df = merge_advanced_player()
     players = pd.merge(players, understat_player_df, on= 'id', how = 'inner')
     players['ppg'] = round((players['total_points'] / players['games']), 1)
     players['mpg'] = round((players['minutes'] / players['games']), 1)
@@ -415,13 +414,6 @@ def get_players():
     players['apg'] = round((players['assists'] / players['games']), 1)
     players['cspg'] = round((players['clean_sheets'] / players['games']), 1)
     players['bppg'] = round((players['bonus'] / players['games']), 1)
-    #players['SpG'] = players.SpG.astype(float)
-    #players['PS%'] = players['PS%'].astype(float)
-    #players['KeyP'] = players.KeyP.astype(float)
-    #players['Drb'] = players.Drb.astype(float)
-    #players['AvgP'] = players.AvgP.astype(float)
-    #players['Crosses'] = players.Crosses.astype(float)
-    #players['ThrB'] = players.ThrB.astype(float)
     return players
 
 #--------------------------------------------------------------------------------------------------------------------------
@@ -467,9 +459,9 @@ def whoscored_team_to_csv(gametype):
         statistics[section] = pd.concat([statistics[section], df])
         count += 1
 
-    statistics['summary'].to_csv('fpl_django/csv/summary_team_%s.csv' % gametype, index = False)
-    statistics['defensive'].to_csv('fpl_django/csv/defensive_team_%s.csv' % gametype, index = False)
-    statistics['offensive'].to_csv('fpl_django/csv/offensive_team_%s.csv' % gametype, index = False)
+    statistics['summary'].to_csv('csv/summary_team_%s.csv' % gametype, index = False)
+    statistics['defensive'].to_csv('csv/defensive_team_%s.csv' % gametype, index = False)
+    statistics['offensive'].to_csv('csv/offensive_team_%s.csv' % gametype, index = False)
     return statistics
 #%%
 def whoscored_team_table_to_csv():
@@ -487,7 +479,7 @@ def whoscored_team_table_to_csv():
     df = pd.read_html(table_html)[0]
     table_df = pd.concat([table_df, df])
     time.sleep(5)
-    table_df.to_csv('fpl_django/csv/team_table.csv', index = False)
+    table_df.to_csv('csv/team_table.csv', index = False)
     return table_df
 #%%
 def advanced_team():
@@ -594,6 +586,6 @@ def advanced_team():
 #GET TEAM DATAFRAME with fpl, whoscored data
 # team_stats = advanced_team()
 
-#UPDATE TEAM_RATINGS_DF --- MUST ADD 'fpl_django/' to get_fixtures file path i.e. f = open('fpl_django/csv/fixtures.csv')
+#UPDATE TEAM_RATINGS_DF --> then call get_team_ratings
 #fixtures = get_fixtures()
 #ratings = team_rating(fixtures)
