@@ -1,1 +1,1 @@
-web: gunicorn fpl_django.wsgi --log-file -
+web: gunicorn fpl_django.fpl_django.wsgi --log-file -
