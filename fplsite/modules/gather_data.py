@@ -328,8 +328,260 @@ def get_gkps_home_away():
 
     return [gkps_home, gkps_away]
 
-#GENERATE CSV FOR GKP STRONG/WEAK PLOT
-def gkps_strong_weak_csv():
+#GENERATE CSV FOR DEF HOME/AWAY PLOT
+def defs_home_away_csv():
+    players = fpl_player()
+    players_def = players.loc[players['position'] == 'DEF']
+
+    #home--get subsets of GW dataframe and format dataframe accordingly
+    gws = get_gws()
+    gws_home = gws.loc[gws['was_home'] == 1]
+    gws_home = gws_home.loc[gws['position'] == 'DEF']
+    gws_home = gws_home[['id', 'minutes', 'total_points', 'web_name']]
+    gws_by_player_home = gws_home.groupby('web_name')['id', 'minutes','total_points'].mean()
+    gws_by_player_home = gws_by_player_home.reset_index()
+    gws_by_player_home['id'] = gws_by_player_home.id.astype(int)
+    players_def_home = players_def[['id','team_name', 'cost', 'selected_by_percent']]
+    gws_by_player_home = pd.merge(gws_by_player_home, players_def_home, on='id', how='left')
+    gws_by_player_home = gws_by_player_home[gws_by_player_home['minutes'] > ((1/2)* 90.0)]
+    gws_by_player_home = gws_by_player_home.rename(columns={"minutes":"avg_minutes", "total_points":"avg_points"})
+
+    #away--get subsets of GW dataframe and format dataframe accordingly
+    gws_away = gws.loc[gws['was_home'] == 0]
+    gws_away = gws_away.loc[gws['position'] == 'DEF']
+    gws_away = gws_away[['id', 'minutes', 'total_points', 'web_name']]
+    gws_by_player_away = gws_away.groupby('web_name')['id', 'minutes','total_points'].mean()
+    gws_by_player_away = gws_by_player_away.reset_index()
+    gws_by_player_away['id'] = gws_by_player_away.id.astype(int)
+    players_def_away = players_def[['id','team_name', 'cost', 'selected_by_percent']]
+    gws_by_player_away = pd.merge(gws_by_player_away, players_def_away, on='id', how='left')
+    gws_by_player_away = gws_by_player_away[gws_by_player_away['minutes'] > ((1/2)* 90.0)]
+    gws_by_player_away = gws_by_player_away.rename(columns={"minutes":"avg_minutes", "total_points":"avg_points"})
+
+    def color(c):
+        if c < 4.3:
+            return ["darkgreen", "Less than 4.3"]
+        elif c < 4.8:
+            return ["green", "4.3 to 4.7"]
+        elif c < 5.3:
+            return ["greenyellow", "4.8 to 5.2"]
+        elif c < 5.8:
+            return ["gold", "5.3 to 5.7"]
+        elif c < 6.3:
+            return ["orange", "5.8 to 6.2"]
+        elif c < 6.8:
+            return ["darkorange", "6.3 to 6.7"]
+        elif c < 7.3:
+            return ["orangered", "6.8 to 7.2"]
+        else: return ["red", "7.3 and over"]
+    
+    gws_by_player_home["color"] = gws_by_player_home["cost"].apply(lambda c: color(c)[0])
+    gws_by_player_home["range"] = gws_by_player_home["cost"].apply(lambda c: color(c)[1])
+    gws_by_player_home["cost"] = gws_by_player_home["cost"].apply(lambda c: round(c, 1))
+    gws_by_player_away["color"] = gws_by_player_away["cost"].apply(lambda c: color(c)[0])
+    gws_by_player_away["range"] = gws_by_player_away["cost"].apply(lambda c: color(c)[1])
+    gws_by_player_away["cost"] = gws_by_player_away["cost"].apply(lambda c: round(c, 1))
+
+    gws_by_player_home.to_csv('csv/defs_home.csv', index = False)
+    gws_by_player_away.to_csv('csv/defs_away.csv', index = False)
+    return
+
+#GRAB DEFS DF needed for home/away plot on defs.html
+def get_defs_home_away():
+    f_home = open('csv/defs_home.csv')
+    defs_home = pd.read_csv(f_home)
+    f_away = open('csv/defs_away.csv')
+    defs_away = pd.read_csv(f_away)
+    return [defs_home, defs_away]
+
+#GENERATE CSV FOR MID HOME/AWAY PLOT
+def mids_home_away_csv():
+    players = fpl_player()
+    players_mid = players.loc[players['position'] == 'MID']
+
+    #home--get subsets of GW dataframe and format dataframe accordingly
+    gws = get_gws()
+    gws_home = gws.loc[gws['was_home'] == 1]
+    gws_home = gws_home.loc[gws['position'] == 'MID']
+    gws_home = gws_home[['id', 'minutes', 'total_points', 'web_name']]
+    gws_by_player_home = gws_home.groupby('web_name')['id', 'minutes','total_points'].mean()
+    gws_by_player_home = gws_by_player_home.reset_index()
+    gws_by_player_home['id'] = gws_by_player_home.id.astype(int)
+    players_mid_home = players_mid[['id','team_name', 'cost', 'selected_by_percent']]
+    gws_by_player_home = pd.merge(gws_by_player_home, players_mid_home, on='id', how='left')
+    gws_by_player_home = gws_by_player_home[gws_by_player_home['minutes'] > ((1/2)* 90.0)]
+    gws_by_player_home = gws_by_player_home.rename(columns={"minutes":"avg_minutes", "total_points":"avg_points"})
+
+    #away--get subsets of GW dataframe and format dataframe accordingly
+    gws_away = gws.loc[gws['was_home'] == 0]
+    gws_away = gws_away.loc[gws['position'] == 'MID']
+    gws_away = gws_away[['id', 'minutes', 'total_points', 'web_name']]
+    gws_by_player_away = gws_away.groupby('web_name')['id', 'minutes','total_points'].mean()
+    gws_by_player_away = gws_by_player_away.reset_index()
+    gws_by_player_away['id'] = gws_by_player_away.id.astype(int)
+    players_mid_away = players_mid[['id','team_name', 'cost', 'selected_by_percent']]
+    gws_by_player_away = pd.merge(gws_by_player_away, players_mid_away, on='id', how='left')
+    gws_by_player_away = gws_by_player_away[gws_by_player_away['minutes'] > ((1/2)* 90.0)]
+    gws_by_player_away = gws_by_player_away.rename(columns={"minutes":"avg_minutes", "total_points":"avg_points"})
+
+    def color(c):
+        if c < 5.0:
+            return ["darkgreen", "Less than 5.0"]
+        elif c <6.0:
+            return ["green", "5.0 to 5.9"]
+        elif c < 7.0:
+            return ["lime", "6.0 to 6.9"]
+        elif c < 8.0:
+            return ["greenyellow", "7.0 to 7.9"]
+        elif c < 9.0:
+            return ["gold", "8.0 to 8.9"]
+        elif c < 10.0:
+            return ["orange", "9.0 to 9.9"]
+        elif c < 11.0:
+            return ["darkorange", "10.0 to 10.9"]
+        elif c < 12.0:
+            return ["orangered", "11.0 to 11.9"]
+        else: return ["red", "12.0 and over"]
+    
+    gws_by_player_home["color"] = gws_by_player_home["cost"].apply(lambda c: color(c)[0])
+    gws_by_player_home["range"] = gws_by_player_home["cost"].apply(lambda c: color(c)[1])
+    gws_by_player_home["cost"] = gws_by_player_home["cost"].apply(lambda c: round(c, 1))
+    gws_by_player_away["color"] = gws_by_player_away["cost"].apply(lambda c: color(c)[0])
+    gws_by_player_away["range"] = gws_by_player_away["cost"].apply(lambda c: color(c)[1])
+    gws_by_player_away["cost"] = gws_by_player_away["cost"].apply(lambda c: round(c, 1))
+
+    gws_by_player_home.to_csv('csv/mids_home.csv', index = False)
+    gws_by_player_away.to_csv('csv/mids_away.csv', index = False)
+    return
+
+#GRAB MIDS DF needed for home/away plot on mids.html
+def get_mids_home_away():
+    f_home = open('csv/mids_home.csv')
+    mids_home = pd.read_csv(f_home)
+    f_away = open('csv/mids_away.csv')
+    mids_away = pd.read_csv(f_away)
+    return [mids_home, mids_away]
+
+#GENERATE CSV FOR FWD HOME/AWAY PLOT
+def fwds_home_away_csv():
+    players = fpl_player()
+    players_fwd = players.loc[players['position'] == 'FWD']
+
+    #home--get subsets of GW dataframe and format dataframe accordingly
+    gws = get_gws()
+    gws_home = gws.loc[gws['was_home'] == 1]
+    gws_home = gws_home.loc[gws['position'] == 'FWD']
+    gws_home = gws_home[['id', 'minutes', 'total_points', 'web_name']]
+    gws_by_player_home = gws_home.groupby('web_name')['id', 'minutes','total_points'].mean()
+    gws_by_player_home = gws_by_player_home.reset_index()
+    gws_by_player_home['id'] = gws_by_player_home.id.astype(int)
+    players_fwd_home = players_fwd[['id','team_name', 'cost', 'selected_by_percent']]
+    gws_by_player_home = pd.merge(gws_by_player_home, players_fwd_home, on='id', how='left')
+    gws_by_player_home = gws_by_player_home[gws_by_player_home['minutes'] > ((1/2)* 90.0)]
+    gws_by_player_home = gws_by_player_home.rename(columns={"minutes":"avg_minutes", "total_points":"avg_points"})
+
+    #away--get subsets of GW dataframe and format dataframe accordingly
+    gws_away = gws.loc[gws['was_home'] == 0]
+    gws_away = gws_away.loc[gws['position'] == 'FWD']
+    gws_away = gws_away[['id', 'minutes', 'total_points', 'web_name']]
+    gws_by_player_away = gws_away.groupby('web_name')['id', 'minutes','total_points'].mean()
+    gws_by_player_away = gws_by_player_away.reset_index()
+    gws_by_player_away['id'] = gws_by_player_away.id.astype(int)
+    players_fwd_away = players_fwd[['id','team_name', 'cost', 'selected_by_percent']]
+    gws_by_player_away = pd.merge(gws_by_player_away, players_fwd_away, on='id', how='left')
+    gws_by_player_away = gws_by_player_away[gws_by_player_away['minutes'] > ((1/2)* 90.0)]
+    gws_by_player_away = gws_by_player_away.rename(columns={"minutes":"avg_minutes", "total_points":"avg_points"})
+
+    def color(c):
+        if c < 5.0:
+            return ["darkgreen", "Less than 5.0"]
+        elif c <6.0:
+            return ["green", "5.0 to 5.9"]
+        elif c < 7.0:
+            return ["lime", "6.0 to 6.9"]
+        elif c < 8.0:
+            return ["greenyellow", "7.0 to 7.9"]
+        elif c < 9.0:
+            return ["gold", "8.0 to 8.9"]
+        elif c < 10.0:
+            return ["orange", "9.0 to 9.9"]
+        elif c < 11.0:
+            return ["darkorange", "10.0 to 10.9"]
+        elif c < 12.0:
+            return ["orangered", "11.0 to 11.9"]
+        else: return ["red", "12.0 and over"]
+    
+    gws_by_player_home["color"] = gws_by_player_home["cost"].apply(lambda c: color(c)[0])
+    gws_by_player_home["range"] = gws_by_player_home["cost"].apply(lambda c: color(c)[1])
+    gws_by_player_home["cost"] = gws_by_player_home["cost"].apply(lambda c: round(c, 1))
+    gws_by_player_away["color"] = gws_by_player_away["cost"].apply(lambda c: color(c)[0])
+    gws_by_player_away["range"] = gws_by_player_away["cost"].apply(lambda c: color(c)[1])
+    gws_by_player_away["cost"] = gws_by_player_away["cost"].apply(lambda c: round(c, 1))
+
+    gws_by_player_home.to_csv('csv/fwds_home.csv', index = False)
+    gws_by_player_away.to_csv('csv/fwds_away.csv', index = False)
+    return
+
+#GRAB FWDS DF needed for home/away plot on fwds.html
+def get_fwds_home_away():
+    f_home = open('csv/fwds_home.csv')
+    fwds_home = pd.read_csv(f_home)
+    f_away = open('csv/fwds_away.csv')
+    fwds_away = pd.read_csv(f_away)
+    return [fwds_home, fwds_away]
+
+#GENERATE CSV FOR FORM PLOTS
+def form_csv(position):
+    gws = get_gws()
+    players = fpl_player()
+    ratings = get_team_ratings()
+    ratings = ratings[['GW', 'team', 'team_name','rating_standardized']]
+    current_gw = ratings['GW'].max()
+
+    #IN FORM-------------------------------------------------------------------
+    GKPs = players.loc[players['position'] == position]
+    GKPs = GKPs[['id', 'selected_by_percent']]
+    gws_form_GKP = gws.loc[gws['position']== position]
+    gws_form_GKP = gws_form_GKP.loc[gws['GW'].isin([current_gw-2, current_gw-1, current_gw]) ]
+    gws_form_GKP = gws_form_GKP[['id', 'web_name', 'GW', 'position', 'minutes', 'opponent_team', 'total_points', 'was_home']]
+    gws_form_GKP = pd.merge(GKPs, gws_form_GKP, on='id', how = 'right')
+    gws_form_GKP = gws_form_GKP.dropna()
+    form_player_avgs = gws_form_GKP.groupby('web_name')['minutes','total_points', 'selected_by_percent'].mean()
+    if position == 'GKP':
+        top20_form = form_player_avgs.nlargest(5, 'total_points')
+    elif position in ['DEF', 'MID']:
+        top20_form = form_player_avgs.nlargest(20, 'total_points')
+    else:
+        top20_form = form_player_avgs.nlargest(15, 'total_points')
+    top20_form = top20_form.reset_index()
+
+    #OUT OF FORM-------------------------------------------------------------------
+    form_player_avgs = form_player_avgs.loc[form_player_avgs['selected_by_percent'] > 1.5]
+    form_player_avgs = form_player_avgs.loc[form_player_avgs['minutes'] > 45]
+    if position == 'GKP':
+        bot20_form = form_player_avgs.nsmallest(5, 'total_points')
+    elif position in ['DEF', 'MID']:
+        bot20_form = form_player_avgs.nsmallest(20, 'total_points')
+    else:
+        bot20_form = form_player_avgs.nsmallest(15, 'total_points')
+    bot20_form = bot20_form.reset_index()
+
+    top20_form.to_csv('csv/%s_in_form.csv' % position, index = False)
+    bot20_form.to_csv('csv/%s_out_form.csv' % position, index = False)
+    return
+
+#GRAB DF needed for form plot on gkps/defs/mids/fwds.html
+def get_form(position):
+    f_in = open('csv/%s_in_form.csv' % position)
+    in_form = pd.read_csv(f_in)
+    f_out = open('csv/%s_out_form.csv' % position)
+    out_form = pd.read_csv(f_out)
+
+    return [in_form, out_form]
+
+
+
+def strong_weak_csv(position):
     #STRONG-------------------------------------------------------------------
     #Generate GW dataframe with opponent team rating column
     gws = get_gws()
@@ -341,80 +593,45 @@ def gkps_strong_weak_csv():
     gws_ratings = pd.merge(ratings, gws_ratings, left_on = ['team', 'GW'], right_on=['opponent_team', 'GW'], how = 'right')
     gws_ratings = gws_ratings.rename(columns={"team_name": "opponent_name", "rating_standardized": "opp_rating"})
     gws_ratings = gws_ratings.drop(columns = ['team']) 
-    gws_strong_GKP = gws_ratings.loc[gws_ratings['position']== 'GKP']
-    gws_strong_GKP = gws_strong_GKP.loc[gws_strong_GKP['opp_rating'] > 0.5]
-    gws_strong_GKP = gws_strong_GKP.loc[gws_strong_GKP['minutes'] > 0]
-
-    strong_player_avgs = gws_strong_GKP.groupby("web_name")["id"].count().reset_index(name="games")
-    strong_player_avgs = pd.merge(strong_player_avgs, gws_strong_GKP, on = 'web_name', how = 'left')
+    gws_strong_def = gws_ratings.loc[gws_ratings['position']== position]
+    gws_strong_def = gws_strong_def.loc[gws_strong_def['opp_rating'] > 0.5]
+    gws_strong_def = gws_strong_def.loc[gws_strong_def['minutes'] > 0]
+    strong_player_avgs = gws_strong_def.groupby("web_name")["id"].count().reset_index(name="games")
+    strong_player_avgs = pd.merge(strong_player_avgs, gws_strong_def, on = 'web_name', how = 'left')
     strong_player_avgs = strong_player_avgs.groupby('web_name')['total_points', 'minutes', 'games'].mean()
-    top20_strong = strong_player_avgs.nlargest(10, 'total_points')
-    top20_strong = top20_strong.reset_index()
 
     #WEAK-------------------------------------------------------------------
     #Generate GW dataframe with opponent team rating column
-    gws_weak_GKP = gws_ratings.loc[gws_ratings['position']== 'GKP']
-    gws_weak_GKP = gws_weak_GKP.loc[gws_weak_GKP['opp_rating'] < -0.5]
-    gws_weak_GKP = gws_weak_GKP.loc[gws_weak_GKP['minutes'] > 0]
-
-    weak_player_avgs = gws_weak_GKP.groupby("web_name")["id"].count().reset_index(name="games")
-    weak_player_avgs = pd.merge(weak_player_avgs, gws_weak_GKP, on = 'web_name', how = 'left')
+    gws_weak_def = gws_ratings.loc[gws_ratings['position']== position]
+    gws_weak_def = gws_weak_def.loc[gws_weak_def['opp_rating'] < -0.5]
+    gws_weak_def = gws_weak_def.loc[gws_weak_def['minutes'] > 0]
+    weak_player_avgs = gws_weak_def.groupby("web_name")["id"].count().reset_index(name="games")
+    weak_player_avgs = pd.merge(weak_player_avgs, gws_weak_def, on = 'web_name', how = 'left')
     weak_player_avgs = weak_player_avgs.groupby('web_name')['total_points', 'minutes', 'games'].mean()
-    top20_weak = weak_player_avgs.nlargest(10, 'total_points')
+    if position == 'GKP':
+        top20_strong = strong_player_avgs.nlargest(10, 'total_points')
+        top20_weak = weak_player_avgs.nlargest(10, 'total_points')
+    elif position in ['DEF', 'MID']:
+        top20_strong = strong_player_avgs.nlargest(20, 'total_points')
+        top20_weak = weak_player_avgs.nlargest(20, 'total_points')
+    else:
+        top20_strong = strong_player_avgs.nlargest(15, 'total_points')
+        top20_weak = weak_player_avgs.nlargest(15, 'total_points')
+    top20_strong = top20_strong.reset_index()
     top20_weak = top20_weak.reset_index()
 
-    top20_strong.to_csv('csv/gkps_strong.csv', index = False)
-    top20_weak.to_csv('csv/gkps_weak.csv', index = False)
+    top20_strong.to_csv('csv/%s_strong.csv' % position, index = False)
+    top20_weak.to_csv('csv/%s_weak.csv' % position, index = False)
     return
 
-#GRAB GKP DF needed for strong/weak plot on gkps.html
-def get_gkps_strong_weak():
-    f_strong = open('csv/gkps_strong.csv')
-    gkps_strong = pd.read_csv(f_strong)
-    f_weak = open('csv/gkps_weak.csv')
-    gkps_weak = pd.read_csv(f_weak)
+#GRAB DF needed for strong/weak plot on gkps/defs/mids/fwds.html
+def get_strong_weak(position):
+    f_strong = open('csv/%s_strong.csv' % position)
+    strong = pd.read_csv(f_strong)
+    f_weak = open('csv/%s_weak.csv' % position)
+    weak = pd.read_csv(f_weak)
+    return [strong, weak]
 
-    return [gkps_strong, gkps_weak]
-
-#GENERATE CSV FOR GKP FORM PLOT
-def gkps_form_csv():
-    gws = get_gws()
-    players = fpl_player()
-    ratings = get_team_ratings()
-    ratings = ratings[['GW', 'team', 'team_name','rating_standardized']]
-    current_gw = ratings['GW'].max()
-
-    #IN FORM-------------------------------------------------------------------
-    GKPs = players.loc[players['position'] == 'GKP']
-    GKPs = GKPs[['id', 'selected_by_percent']]
-    gws_form_GKP = gws.loc[gws['position']== 'GKP']
-    gws_form_GKP = gws_form_GKP.loc[gws['GW'].isin([current_gw-2, current_gw-1, current_gw]) ]
-    gws_form_GKP = gws_form_GKP[['id', 'web_name', 'GW', 'position', 'minutes', 'opponent_team', 'total_points', 'was_home']]
-    gws_form_GKP = pd.merge(GKPs, gws_form_GKP, on='id', how = 'right')
-    gws_form_GKP = gws_form_GKP.dropna()
-    form_player_avgs = gws_form_GKP.groupby('web_name')['minutes','total_points', 'selected_by_percent'].mean()
-    top20_form = form_player_avgs.nlargest(5, 'total_points')
-    top20_form = top20_form.reset_index()
-
-    #OUT OF FORM-------------------------------------------------------------------
-    form_player_avgs = form_player_avgs.loc[form_player_avgs['selected_by_percent'] > 1.5]
-    form_player_avgs = form_player_avgs.loc[form_player_avgs['minutes'] > 45]
-    bot20_form = form_player_avgs.nsmallest(5, 'total_points')
-    bot20_form = bot20_form.reset_index()
-
-    top20_form.to_csv('csv/gkps_in_form.csv', index = False)
-    bot20_form.to_csv('csv/gkps_out_form.csv', index = False)
-
-    return
-
-#GRAB GKP DF needed for form plot on gkps.html
-def get_gkps_form():
-    f_in = open('csv/gkps_in_form.csv')
-    gkps_in = pd.read_csv(f_in)
-    f_out = open('csv/gkps_out_form.csv')
-    gkps_out = pd.read_csv(f_out)
-
-    return [gkps_in, gkps_out]
 #--------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------
@@ -742,5 +959,14 @@ def advanced_team():
 
 #PLOTS-----CREATE CSVs FOR EACH HOME/AWAY,STRONG/WEAK,FORM PLOT (for gkps,defs,mids,fwds.html)
 #gkps_home_away_csv()
-#gkps_strong_weak_csv()
-#gkps_form_csv()
+#strong_weak_csv('GKP')
+#form_csv('GKP')
+#defs_home_away_csv()
+#strong_weak_csv('DEF')
+#form_csv('DEF')
+#mids_home_away_csv()
+#strong_weak_csv('MID')
+#form_csv('MID')
+#fwds_home_away_csv()
+#strong_weak_csv('FWD')
+#form_csv('FWD')

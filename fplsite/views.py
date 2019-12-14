@@ -2,7 +2,7 @@ from django.shortcuts import render
 import math
 from collections import OrderedDict
 import pandas as pd
-from .modules.gather_data import fpl_player, get_players, get_gws, get_fixtures, advanced_team, get_team_ratings, get_gkps_home_away, get_gkps_strong_weak, get_gkps_form
+from .modules.gather_data import fpl_player, get_players, get_gws, get_fixtures, advanced_team, get_team_ratings, get_gkps_home_away, get_defs_home_away, get_mids_home_away, get_fwds_home_away, get_strong_weak, get_form
 from bokeh.plotting import figure
 from bokeh.models import ColumnDataSource, Legend, LegendItem, Panel, Tabs, CustomJS, StringFormatter
 from bokeh.models.widgets import DataTable, TableColumn, Select, HTMLTemplateFormatter, CheckboxButtonGroup, Button
@@ -739,7 +739,7 @@ def gkps(request):
     home_away_script, home_away_div = components(home_away_plot)
 
     #STRONG/WEAK---------------------------------------------------------------------------------------------------------------------
-    gkps_strong_weak = get_gkps_strong_weak()
+    gkps_strong_weak = get_strong_weak('GKP')
     top20_strong = gkps_strong_weak[0]
 
     strong_cds = ColumnDataSource(top20_strong)
@@ -774,7 +774,7 @@ def gkps(request):
 
     #IN FORM/OUT OF FORM---------------------------------------------------------------------------------------------------------------------
     #IN FORM-------------------------------------------------------------------
-    gkps_form = get_gkps_form()
+    gkps_form = get_form('GKP')
     top20_form = gkps_form[0]
     in_form_cds = ColumnDataSource(top20_form)
     in_form_plot = figure(x_axis_label='Name', y_axis_label='Avg Points', title=' In Form Goalkeepers (Last 3 GWs)', 
@@ -948,57 +948,12 @@ def defs(request):
     roi_script, roi_div = components(roi_plot_layout)
 
     #HOME/AWAY---------------------------------------------------------------------------------------------------------------------
+    defs_home_away = get_defs_home_away()
+    gws_by_player_home = defs_home_away[0]
+    gws_by_player_away = defs_home_away[1]
 
-    #home--get subsets of GW dataframe and format dataframe accordingly
-    gws = get_gws()
-    gws_home = gws.loc[gws['was_home'] == 1]
-    gws_home = gws_home.loc[gws['position'] == 'DEF']
-    gws_home = gws_home[['id', 'minutes', 'total_points', 'web_name']]
-    gws_by_player_home = gws_home.groupby('web_name')['id', 'minutes','total_points'].mean()
-    gws_by_player_home = gws_by_player_home.reset_index()
-    gws_by_player_home['id'] = gws_by_player_home.id.astype(int)
-    players_def_home = players_def[['id','team_name', 'cost', 'selected_by_percent']]
-    gws_by_player_home = pd.merge(gws_by_player_home, players_def_home, on='id', how='left')
-    gws_by_player_home = gws_by_player_home[gws_by_player_home['minutes'] > ((1/2)* 90.0)]
-    avg_pts_home = gws_by_player_home['total_points'].mean()
-    gws_by_player_home = gws_by_player_home.rename(columns={"minutes":"avg_minutes", "total_points":"avg_points"})
-
-    #away--get subsets of GW dataframe and format dataframe accordingly
-    gws_away = gws.loc[gws['was_home'] == 0]
-    gws_away = gws_away.loc[gws['position'] == 'DEF']
-    gws_away = gws_away[['id', 'minutes', 'total_points', 'web_name']]
-    gws_by_player_away = gws_away.groupby('web_name')['id', 'minutes','total_points'].mean()
-    gws_by_player_away = gws_by_player_away.reset_index()
-    gws_by_player_away['id'] = gws_by_player_away.id.astype(int)
-    players_def_away = players_def[['id','team_name', 'cost', 'selected_by_percent']]
-    gws_by_player_away = pd.merge(gws_by_player_away, players_def_away, on='id', how='left')
-    gws_by_player_away = gws_by_player_away[gws_by_player_away['minutes'] > ((1/2)* 90.0)]
-    avg_pts_away = gws_by_player_away['total_points'].mean()
-    gws_by_player_away = gws_by_player_away.rename(columns={"minutes":"avg_minutes", "total_points":"avg_points"})
-
-    def color(c):
-        if c < 4.3:
-            return ["darkgreen", "Less than 4.3"]
-        elif c < 4.8:
-            return ["green", "4.3 to 4.7"]
-        elif c < 5.3:
-            return ["greenyellow", "4.8 to 5.2"]
-        elif c < 5.8:
-            return ["gold", "5.3 to 5.7"]
-        elif c < 6.3:
-            return ["orange", "5.8 to 6.2"]
-        elif c < 6.8:
-            return ["darkorange", "6.3 to 6.7"]
-        elif c < 7.3:
-            return ["orangered", "6.8 to 7.2"]
-        else: return ["red", "7.3 and over"]
-    
-    gws_by_player_home["color"] = gws_by_player_home["cost"].apply(lambda c: color(c)[0])
-    gws_by_player_home["range"] = gws_by_player_home["cost"].apply(lambda c: color(c)[1])
-    gws_by_player_home["cost"] = gws_by_player_home["cost"].apply(lambda c: round(c, 1))
-    gws_by_player_away["color"] = gws_by_player_away["cost"].apply(lambda c: color(c)[0])
-    gws_by_player_away["range"] = gws_by_player_away["cost"].apply(lambda c: color(c)[1])
-    gws_by_player_away["cost"] = gws_by_player_away["cost"].apply(lambda c: round(c, 1))
+    avg_pts_home = gws_by_player_home['avg_points'].mean()
+    avg_pts_away = gws_by_player_away['avg_points'].mean()
 
     max43_home = ColumnDataSource(gws_by_player_home.loc[gws_by_player_home['cost'] < 4.3])
     max48_home = ColumnDataSource(gws_by_player_home[gws_by_player_home['cost'].between(4.3, 4.7)])
@@ -1082,24 +1037,9 @@ def defs(request):
     #STRONG/WEAK---------------------------------------------------------------------------------------------------------------------
     #STRONG-------------------------------------------------------------------
     #Generate GW dataframe with opponent team rating column
-    #fixtures = get_fixtures()
-    #ratings = team_rating(fixtures)
-    ratings = get_team_ratings()
-    ratings = ratings[['GW', 'team', 'team_name','rating_standardized']]
-    gws_ratings = gws.loc[gws['GW'] < current_gw]
-    gws_ratings = gws_ratings[['id', 'web_name', 'GW', 'position', 'minutes', 'opponent_team', 'total_points', 'was_home']]
-    gws_ratings = pd.merge(ratings, gws_ratings, left_on = ['team', 'GW'], right_on=['opponent_team', 'GW'], how = 'right')
-    gws_ratings = gws_ratings.rename(columns={"team_name": "opponent_name", "rating_standardized": "opp_rating"})
-    gws_ratings = gws_ratings.drop(columns = ['team']) 
-    gws_strong_def = gws_ratings.loc[gws_ratings['position']== 'DEF']
-    gws_strong_def = gws_strong_def.loc[gws_strong_def['opp_rating'] > 0.5]
-    gws_strong_def = gws_strong_def.loc[gws_strong_def['minutes'] > 0]
-
-    strong_player_avgs = gws_strong_def.groupby("web_name")["id"].count().reset_index(name="games")
-    strong_player_avgs = pd.merge(strong_player_avgs, gws_strong_def, on = 'web_name', how = 'left')
-    strong_player_avgs = strong_player_avgs.groupby('web_name')['total_points', 'minutes', 'games'].mean()
-    top20_strong = strong_player_avgs.nlargest(20, 'total_points')
-    top20_strong = top20_strong.reset_index()
+    defs_strong_weak = get_strong_weak('DEF')
+    top20_strong = defs_strong_weak[0]
+    top20_weak = defs_strong_weak[1]
 
     strong_cds = ColumnDataSource(top20_strong)
     strong_plot = figure(x_axis_label='Name', y_axis_label='Avg Points', title=' Top Performers against Strong Opponents: Defenders', 
@@ -1112,18 +1052,8 @@ def defs(request):
         ("Games Played", "@games")
     ])
     strong_plot.xaxis.major_label_orientation = math.pi/4
+
     #WEAK-------------------------------------------------------------------
-    #Generate GW dataframe with opponent team rating column
-    gws_weak_def = gws_ratings.loc[gws_ratings['position']== 'DEF']
-    gws_weak_def = gws_weak_def.loc[gws_weak_def['opp_rating'] < -0.5]
-    gws_weak_def = gws_weak_def.loc[gws_weak_def['minutes'] > 0]
-
-    weak_player_avgs = gws_weak_def.groupby("web_name")["id"].count().reset_index(name="games")
-    weak_player_avgs = pd.merge(weak_player_avgs, gws_weak_def, on = 'web_name', how = 'left')
-    weak_player_avgs = weak_player_avgs.groupby('web_name')['total_points', 'minutes', 'games'].mean()
-    top20_weak = weak_player_avgs.nlargest(20, 'total_points')
-    top20_weak = top20_weak.reset_index()
-
     weak_cds = ColumnDataSource(top20_weak)
     weak_plot = figure(x_axis_label='Name', y_axis_label='Avg Points', title=' Top Performers against Weak Opponents: Defenders', 
                    plot_width=1050, plot_height=600, x_range=top20_weak['web_name'], tools=TOOLS, toolbar_location="above")
@@ -1143,17 +1073,9 @@ def defs(request):
 
     #IN FORM/OUT OF FORM---------------------------------------------------------------------------------------------------------------------
     #IN FORM-------------------------------------------------------------------
-    defs = players.loc[players['position'] == 'DEF']
-    defs = defs[['id', 'selected_by_percent']]
-    gws_form_def = gws.loc[gws['position']== 'DEF']
-    gws_form_def = gws_form_def.loc[gws['GW'].isin([current_gw-2, current_gw-1, current_gw]) ]
-    gws_form_def = gws_form_def[['id', 'web_name', 'GW', 'position', 'minutes', 'opponent_team', 'total_points', 'was_home']]
-    gws_form_def = pd.merge(defs, gws_form_def, on='id', how = 'right')
-    gws_form_def = gws_form_def.dropna()
-    form_player_avgs = gws_form_def.groupby('web_name')['minutes','total_points', 'selected_by_percent'].mean()
-    top20_form = form_player_avgs.nlargest(20, 'total_points')
-    top20_form = top20_form.reset_index()
-
+    defs_form = get_form('DEF')
+    top20_form = defs_form[0]
+    bot20_form = defs_form[1]
     in_form_cds = ColumnDataSource(top20_form)
     in_form_plot = figure(x_axis_label='Name', y_axis_label='Avg Points', title=' In Form Defenders (Last 3 GWs)', 
                    plot_width=1050, plot_height=600, x_range=top20_form['web_name'], tools=TOOLS, toolbar_location="above")
@@ -1168,18 +1090,14 @@ def defs(request):
         ("Selected By %", "@selected_by_percent")
     ])
     in_form_plot.xaxis.major_label_orientation = math.pi/4
-    #OUT OF FORM-------------------------------------------------------------------
-    form_player_avgs = form_player_avgs.loc[form_player_avgs['selected_by_percent'] > 1.5]
-    form_player_avgs = form_player_avgs.loc[form_player_avgs['minutes'] > 45]
-    bot20_form = form_player_avgs.nsmallest(20, 'total_points')
-    bot20_form = bot20_form.reset_index()
 
+    #OUT OF FORM-------------------------------------------------------------------
+    bot20_form = defs_form[1]
     out_form_cds = ColumnDataSource(bot20_form)
     out_form_plot = figure(x_axis_label='Name', y_axis_label='Avg Points', title=' Out of Form Defenders (Last 3 GWs)', 
                    plot_width=1050, plot_height=600, x_range=bot20_form['web_name'], tools=TOOLS, toolbar_location="above")
 
     out_form_plot.circle("web_name", "total_points", source=out_form_cds, color='green', alpha=0.8, size=7)
-    
     hover_out_form =out_form_plot.select(dict(type=HoverTool))
     hover_out_form.tooltips = OrderedDict([
         ("Name", "@web_name"),
@@ -1331,59 +1249,11 @@ def mids(request):
     roi_script, roi_div = components(roi_plot_layout)
 
     #HOME/AWAY---------------------------------------------------------------------------------------------------------------------
-
-    #home--get subsets of GW dataframe and format dataframe accordingly
-    gws = get_gws()
-    gws_home = gws.loc[gws['was_home'] == 1]
-    gws_home = gws_home.loc[gws['position'] == 'MID']
-    gws_home = gws_home[['id', 'minutes', 'total_points', 'web_name']]
-    gws_by_player_home = gws_home.groupby('web_name')['id', 'minutes','total_points'].mean()
-    gws_by_player_home = gws_by_player_home.reset_index()
-    gws_by_player_home['id'] = gws_by_player_home.id.astype(int)
-    players_mid_home = players_mid[['id','team_name', 'cost', 'selected_by_percent']]
-    gws_by_player_home = pd.merge(gws_by_player_home, players_mid_home, on='id', how='left')
-    gws_by_player_home = gws_by_player_home[gws_by_player_home['minutes'] > ((1/2)* 90.0)]
-    avg_pts_home = gws_by_player_home['total_points'].mean()
-    gws_by_player_home = gws_by_player_home.rename(columns={"minutes":"avg_minutes", "total_points":"avg_points"})
-
-    #away--get subsets of GW dataframe and format dataframe accordingly
-    gws_away = gws.loc[gws['was_home'] == 0]
-    gws_away = gws_away.loc[gws['position'] == 'MID']
-    gws_away = gws_away[['id', 'minutes', 'total_points', 'web_name']]
-    gws_by_player_away = gws_away.groupby('web_name')['id', 'minutes','total_points'].mean()
-    gws_by_player_away = gws_by_player_away.reset_index()
-    gws_by_player_away['id'] = gws_by_player_away.id.astype(int)
-    players_mid_away = players_mid[['id','team_name', 'cost', 'selected_by_percent']]
-    gws_by_player_away = pd.merge(gws_by_player_away, players_mid_away, on='id', how='left')
-    gws_by_player_away = gws_by_player_away[gws_by_player_away['minutes'] > ((1/2)* 90.0)]
-    avg_pts_away = gws_by_player_away['total_points'].mean()
-    gws_by_player_away = gws_by_player_away.rename(columns={"minutes":"avg_minutes", "total_points":"avg_points"})
-
-    def color(c):
-        if c < 5.0:
-            return ["darkgreen", "Less than 5.0"]
-        elif c <6.0:
-            return ["green", "5.0 to 5.9"]
-        elif c < 7.0:
-            return ["lime", "6.0 to 6.9"]
-        elif c < 8.0:
-            return ["greenyellow", "7.0 to 7.9"]
-        elif c < 9.0:
-            return ["gold", "8.0 to 8.9"]
-        elif c < 10.0:
-            return ["orange", "9.0 to 9.9"]
-        elif c < 11.0:
-            return ["darkorange", "10.0 to 10.9"]
-        elif c < 12.0:
-            return ["orangered", "11.0 to 11.9"]
-        else: return ["red", "12.0 and over"]
-    
-    gws_by_player_home["color"] = gws_by_player_home["cost"].apply(lambda c: color(c)[0])
-    gws_by_player_home["range"] = gws_by_player_home["cost"].apply(lambda c: color(c)[1])
-    gws_by_player_home["cost"] = gws_by_player_home["cost"].apply(lambda c: round(c, 1))
-    gws_by_player_away["color"] = gws_by_player_away["cost"].apply(lambda c: color(c)[0])
-    gws_by_player_away["range"] = gws_by_player_away["cost"].apply(lambda c: color(c)[1])
-    gws_by_player_away["cost"] = gws_by_player_away["cost"].apply(lambda c: round(c, 1))
+    mids_home_away = get_mids_home_away()
+    gws_by_player_home = mids_home_away[0]
+    gws_by_player_away = mids_home_away[1]
+    avg_pts_home = gws_by_player_home['avg_points'].mean()
+    avg_pts_away = gws_by_player_away['avg_points'].mean()
 
     max5_home = ColumnDataSource(gws_by_player_home.loc[gws_by_player_home['cost'] < 5.0])
     max6_home = ColumnDataSource(gws_by_player_home[gws_by_player_home['cost'].between(5.0, 5.9)])
@@ -1470,26 +1340,9 @@ def mids(request):
 
     #STRONG/WEAK---------------------------------------------------------------------------------------------------------------------
     #STRONG-------------------------------------------------------------------
-    #Generate GW dataframe with opponent team rating column
-    #fixtures = get_fixtures()
-    #ratings = team_rating(fixtures)
-    ratings = get_team_ratings()
-    ratings = ratings[['GW', 'team', 'team_name','rating_standardized']]
-    gws_ratings = gws.loc[gws['GW'] < current_gw]
-    gws_ratings = gws_ratings[['id', 'web_name', 'GW', 'position', 'minutes', 'opponent_team', 'total_points', 'was_home']]
-    gws_ratings = pd.merge(ratings, gws_ratings, left_on = ['team', 'GW'], right_on=['opponent_team', 'GW'], how = 'right')
-    gws_ratings = gws_ratings.rename(columns={"team_name": "opponent_name", "rating_standardized": "opp_rating"})
-    gws_ratings = gws_ratings.drop(columns = ['team']) 
-    gws_strong_mid = gws_ratings.loc[gws_ratings['position']== 'MID']
-    gws_strong_mid = gws_strong_mid.loc[gws_strong_mid['opp_rating'] > 0.5]
-    gws_strong_mid = gws_strong_mid.loc[gws_strong_mid['minutes'] > 0]
-
-    strong_player_avgs = gws_strong_mid.groupby("web_name")["id"].count().reset_index(name="games")
-    strong_player_avgs = pd.merge(strong_player_avgs, gws_strong_mid, on = 'web_name', how = 'left')
-    strong_player_avgs = strong_player_avgs.groupby('web_name')['total_points', 'minutes', 'games'].mean()
-    top20_strong = strong_player_avgs.nlargest(20, 'total_points')
-    top20_strong = top20_strong.reset_index()
-
+    mids_strong_weak = get_strong_weak('MID')
+    top20_strong = mids_strong_weak[0]
+    top20_weak = mids_strong_weak[1]
     strong_cds = ColumnDataSource(top20_strong)
     strong_plot = figure(x_axis_label='Name', y_axis_label='Avg Points', title=' Top Performers against Strong Opponents: Midfielders', 
                    plot_width=1050, plot_height=600, x_range=top20_strong['web_name'], tools=TOOLS, toolbar_location="above")
@@ -1501,18 +1354,8 @@ def mids(request):
         ("Games Played", "@games")
     ])
     strong_plot.xaxis.major_label_orientation = math.pi/4
+
     #WEAK-------------------------------------------------------------------
-    #Generate GW dataframe with opponent team rating column
-    gws_weak_mid = gws_ratings.loc[gws_ratings['position']== 'MID']
-    gws_weak_mid = gws_weak_mid.loc[gws_weak_mid['opp_rating'] < -0.5]
-    gws_weak_mid = gws_weak_mid.loc[gws_weak_mid['minutes'] > 0]
-
-    weak_player_avgs = gws_weak_mid.groupby("web_name")["id"].count().reset_index(name="games")
-    weak_player_avgs = pd.merge(weak_player_avgs, gws_weak_mid, on = 'web_name', how = 'left')
-    weak_player_avgs = weak_player_avgs.groupby('web_name')['total_points', 'minutes', 'games'].mean()
-    top20_weak = weak_player_avgs.nlargest(20, 'total_points')
-    top20_weak = top20_weak.reset_index()
-
     weak_cds = ColumnDataSource(top20_weak)
     weak_plot = figure(x_axis_label='Name', y_axis_label='Avg Points', title=' Top Performers against Weak Opponents: Midfielders', 
                    plot_width=1050, plot_height=600, x_range=top20_weak['web_name'], tools=TOOLS, toolbar_location="above")
@@ -1532,23 +1375,14 @@ def mids(request):
 
     #IN FORM/OUT OF FORM---------------------------------------------------------------------------------------------------------------------
     #IN FORM-------------------------------------------------------------------
-    mids = players.loc[players['position'] == 'MID']
-    mids = mids[['id', 'selected_by_percent']]
-    gws_form_mid = gws.loc[gws['position']== 'MID']
-    gws_form_mid = gws_form_mid.loc[gws['GW'].isin([current_gw-2, current_gw-1, current_gw]) ]
-    gws_form_mid = gws_form_mid[['id', 'web_name', 'GW', 'position', 'minutes', 'opponent_team', 'total_points', 'was_home']]
-    gws_form_mid = pd.merge(mids, gws_form_mid, on='id', how = 'right')
-    gws_form_mid = gws_form_mid.dropna()
-    form_player_avgs = gws_form_mid.groupby('web_name')['minutes','total_points', 'selected_by_percent'].mean()
-    top20_form = form_player_avgs.nlargest(20, 'total_points')
-    top20_form = top20_form.reset_index()
-
+    mids_form = get_form('MID')
+    top20_form = mids_form[0]
+    bot20_form = mids_form[1]
     in_form_cds = ColumnDataSource(top20_form)
     in_form_plot = figure(x_axis_label='Name', y_axis_label='Avg Points', title=' In Form Midfielders (Last 3 GWs)', 
                    plot_width=1050, plot_height=600, x_range=top20_form['web_name'], tools=TOOLS, toolbar_location="above")
 
     in_form_plot.circle("web_name", "total_points", source=in_form_cds, color='green', alpha=0.8, size=7)
-    
     hover_in_form =in_form_plot.select(dict(type=HoverTool))
     hover_in_form.tooltips = OrderedDict([
         ("Name", "@web_name"),
@@ -1557,12 +1391,8 @@ def mids(request):
         ("Selected By %", "@selected_by_percent")
     ])
     in_form_plot.xaxis.major_label_orientation = math.pi/4
-    #OUT OF FORM-------------------------------------------------------------------
-    form_player_avgs = form_player_avgs.loc[form_player_avgs['selected_by_percent'] > 1.5]
-    form_player_avgs = form_player_avgs.loc[form_player_avgs['minutes'] > 45]
-    bot20_form = form_player_avgs.nsmallest(20, 'total_points')
-    bot20_form = bot20_form.reset_index()
 
+    #OUT OF FORM-------------------------------------------------------------------
     out_form_cds = ColumnDataSource(bot20_form)
     out_form_plot = figure(x_axis_label='Name', y_axis_label='Avg Points', title=' Out of Form Midfielders (Last 3 GWs)', 
                    plot_width=1050, plot_height=600, x_range=bot20_form['web_name'], tools=TOOLS, toolbar_location="above")
@@ -1723,59 +1553,11 @@ def fwds(request):
     roi_script, roi_div = components(roi_plot_layout)
 
     #HOME/AWAY---------------------------------------------------------------------------------------------------------------------
-
-    #home--get subsets of GW dataframe and format dataframe accordingly
-    gws = get_gws()
-    gws_home = gws.loc[gws['was_home'] == 1]
-    gws_home = gws_home.loc[gws['position'] == 'FWD']
-    gws_home = gws_home[['id', 'minutes', 'total_points', 'web_name']]
-    gws_by_player_home = gws_home.groupby('web_name')['id', 'minutes','total_points'].mean()
-    gws_by_player_home = gws_by_player_home.reset_index()
-    gws_by_player_home['id'] = gws_by_player_home.id.astype(int)
-    players_fwd_home = players_fwd[['id','team_name', 'cost', 'selected_by_percent']]
-    gws_by_player_home = pd.merge(gws_by_player_home, players_fwd_home, on='id', how='left')
-    gws_by_player_home = gws_by_player_home[gws_by_player_home['minutes'] > ((1/2)* 90.0)]
-    avg_pts_home = gws_by_player_home['total_points'].mean()
-    gws_by_player_home = gws_by_player_home.rename(columns={"minutes":"avg_minutes", "total_points":"avg_points"})
-
-    #away--get subsets of GW dataframe and format dataframe accordingly
-    gws_away = gws.loc[gws['was_home'] == 0]
-    gws_away = gws_away.loc[gws['position'] == 'FWD']
-    gws_away = gws_away[['id', 'minutes', 'total_points', 'web_name']]
-    gws_by_player_away = gws_away.groupby('web_name')['id', 'minutes','total_points'].mean()
-    gws_by_player_away = gws_by_player_away.reset_index()
-    gws_by_player_away['id'] = gws_by_player_away.id.astype(int)
-    players_fwd_away = players_fwd[['id','team_name', 'cost', 'selected_by_percent']]
-    gws_by_player_away = pd.merge(gws_by_player_away, players_fwd_away, on='id', how='left')
-    gws_by_player_away = gws_by_player_away[gws_by_player_away['minutes'] > ((1/2)* 90.0)]
-    avg_pts_away = gws_by_player_away['total_points'].mean()
-    gws_by_player_away = gws_by_player_away.rename(columns={"minutes":"avg_minutes", "total_points":"avg_points"})
-
-    def color(c):
-        if c < 5.0:
-            return ["darkgreen", "Less than 5.0"]
-        elif c <6.0:
-            return ["green", "5.0 to 5.9"]
-        elif c < 7.0:
-            return ["lime", "6.0 to 6.9"]
-        elif c < 8.0:
-            return ["greenyellow", "7.0 to 7.9"]
-        elif c < 9.0:
-            return ["gold", "8.0 to 8.9"]
-        elif c < 10.0:
-            return ["orange", "9.0 to 9.9"]
-        elif c < 11.0:
-            return ["darkorange", "10.0 to 10.9"]
-        elif c < 12.0:
-            return ["orangered", "11.0 to 11.9"]
-        else: return ["red", "12.0 and over"]
-    
-    gws_by_player_home["color"] = gws_by_player_home["cost"].apply(lambda c: color(c)[0])
-    gws_by_player_home["range"] = gws_by_player_home["cost"].apply(lambda c: color(c)[1])
-    gws_by_player_home["cost"] = gws_by_player_home["cost"].apply(lambda c: round(c, 1))
-    gws_by_player_away["color"] = gws_by_player_away["cost"].apply(lambda c: color(c)[0])
-    gws_by_player_away["range"] = gws_by_player_away["cost"].apply(lambda c: color(c)[1])
-    gws_by_player_away["cost"] = gws_by_player_away["cost"].apply(lambda c: round(c, 1))
+    fwds_home_away = get_fwds_home_away()
+    gws_by_player_home = fwds_home_away[0]
+    gws_by_player_away = fwds_home_away[1]
+    avg_pts_home = gws_by_player_home['avg_points'].mean()
+    avg_pts_away = gws_by_player_away['avg_points'].mean()
 
     max5_home = ColumnDataSource(gws_by_player_home.loc[gws_by_player_home['cost'] < 5.0])
     max6_home = ColumnDataSource(gws_by_player_home[gws_by_player_home['cost'].between(5.0, 5.9)])
@@ -1862,26 +1644,9 @@ def fwds(request):
 
     #STRONG/WEAK---------------------------------------------------------------------------------------------------------------------
     #STRONG-------------------------------------------------------------------
-    #Generate GW dataframe with opponent team rating column
-    #fixtures = get_fixtures()
-    #ratings = team_rating(fixtures)
-    ratings = get_team_ratings()
-    ratings = ratings[['GW', 'team', 'team_name','rating_standardized']]
-    gws_ratings = gws.loc[gws['GW'] < current_gw]
-    gws_ratings = gws_ratings[['id', 'web_name', 'GW', 'position', 'minutes', 'opponent_team', 'total_points', 'was_home']]
-    gws_ratings = pd.merge(ratings, gws_ratings, left_on = ['team', 'GW'], right_on=['opponent_team', 'GW'], how = 'right')
-    gws_ratings = gws_ratings.rename(columns={"team_name": "opponent_name", "rating_standardized": "opp_rating"})
-    gws_ratings = gws_ratings.drop(columns = ['team']) 
-    gws_strong_fwd = gws_ratings.loc[gws_ratings['position']== 'FWD']
-    gws_strong_fwd = gws_strong_fwd.loc[gws_strong_fwd['opp_rating'] > 0.5]
-    gws_strong_fwd = gws_strong_fwd.loc[gws_strong_fwd['minutes'] > 0]
-
-    strong_player_avgs = gws_strong_fwd.groupby("web_name")["id"].count().reset_index(name="games")
-    strong_player_avgs = pd.merge(strong_player_avgs, gws_strong_fwd, on = 'web_name', how = 'left')
-    strong_player_avgs = strong_player_avgs.groupby('web_name')['total_points', 'minutes', 'games'].mean()
-    top20_strong = strong_player_avgs.nlargest(15, 'total_points')
-    top20_strong = top20_strong.reset_index()
-
+    fwds_strong_weak = get_strong_weak('FWD')
+    top20_strong = fwds_strong_weak[0]
+    top20_weak = fwds_strong_weak[1]
     strong_cds = ColumnDataSource(top20_strong)
     strong_plot = figure(x_axis_label='Name', y_axis_label='Avg Points', title=' Top Performers against Strong Opponents: Forwards', 
                    plot_width=1050, plot_height=600, x_range=top20_strong['web_name'], tools=TOOLS, toolbar_location="above")
@@ -1893,18 +1658,8 @@ def fwds(request):
         ("Games Played", "@games")
     ])
     strong_plot.xaxis.major_label_orientation = math.pi/4
+
     #WEAK-------------------------------------------------------------------
-    #Generate GW dataframe with opponent team rating column
-    gws_weak_fwd = gws_ratings.loc[gws_ratings['position']== 'FWD']
-    gws_weak_fwd = gws_weak_fwd.loc[gws_weak_fwd['opp_rating'] < -0.5]
-    gws_weak_fwd = gws_weak_fwd.loc[gws_weak_fwd['minutes'] > 0]
-
-    weak_player_avgs = gws_weak_fwd.groupby("web_name")["id"].count().reset_index(name="games")
-    weak_player_avgs = pd.merge(weak_player_avgs, gws_weak_fwd, on = 'web_name', how = 'left')
-    weak_player_avgs = weak_player_avgs.groupby('web_name')['total_points', 'minutes', 'games'].mean()
-    top20_weak = weak_player_avgs.nlargest(15, 'total_points')
-    top20_weak = top20_weak.reset_index()
-
     weak_cds = ColumnDataSource(top20_weak)
     weak_plot = figure(x_axis_label='Name', y_axis_label='Avg Points', title=' Top Performers against Weak Opponents: Forwards', 
                    plot_width=1050, plot_height=600, x_range=top20_weak['web_name'], tools=TOOLS, toolbar_location="above")
@@ -1924,17 +1679,9 @@ def fwds(request):
 
     #IN FORM/OUT OF FORM---------------------------------------------------------------------------------------------------------------------
     #IN FORM-------------------------------------------------------------------
-    fwds = players.loc[players['position'] == 'FWD']
-    fwds = fwds[['id', 'selected_by_percent']]
-    gws_form_fwd = gws.loc[gws['position']== 'FWD']
-    gws_form_fwd = gws_form_fwd.loc[gws['GW'].isin([current_gw-2, current_gw-1, current_gw]) ]
-    gws_form_fwd = gws_form_fwd[['id', 'web_name', 'GW', 'position', 'minutes', 'opponent_team', 'total_points', 'was_home']]
-    gws_form_fwd = pd.merge(fwds, gws_form_fwd, on='id', how = 'right')
-    gws_form_fwd = gws_form_fwd.dropna()
-    form_player_avgs = gws_form_fwd.groupby('web_name')['minutes','total_points', 'selected_by_percent'].mean()
-    top20_form = form_player_avgs.nlargest(10, 'total_points')
-    top20_form = top20_form.reset_index()
-
+    fwds_form = get_form('FWD')
+    top20_form = fwds_form[0]
+    bot20_form = fwds_form[1]
     in_form_cds = ColumnDataSource(top20_form)
     in_form_plot = figure(x_axis_label='Name', y_axis_label='Avg Points', title=' In Form Forwards (Last 3 GWs)', 
                    plot_width=1050, plot_height=600, x_range=top20_form['web_name'], tools=TOOLS, toolbar_location="above")
@@ -1949,12 +1696,8 @@ def fwds(request):
         ("Selected By %", "@selected_by_percent")
     ])
     in_form_plot.xaxis.major_label_orientation = math.pi/4
-    #OUT OF FORM-------------------------------------------------------------------
-    form_player_avgs = form_player_avgs.loc[form_player_avgs['selected_by_percent'] > 1.0]
-    form_player_avgs = form_player_avgs.loc[form_player_avgs['minutes'] > 45]
-    bot20_form = form_player_avgs.nsmallest(10, 'total_points')
-    bot20_form = bot20_form.reset_index()
 
+    #OUT OF FORM-------------------------------------------------------------------
     out_form_cds = ColumnDataSource(bot20_form)
     out_form_plot = figure(x_axis_label='Name', y_axis_label='Avg Points', title=' Out of Form Forwards (Last 3 GWs)', 
                    plot_width=1050, plot_height=600, x_range=bot20_form['web_name'], tools=TOOLS, toolbar_location="above")
