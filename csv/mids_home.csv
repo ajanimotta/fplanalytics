@@ -1,91 +1,92 @@
 web_name,id,avg_minutes,avg_points,team_name,cost,selected_by_percent,color,range
-Alli,344,50.3,5.2,Spurs,8.7,12.9,gold,8.0 to 8.9
-Almirón,266,86.3,2.3,Newcastle,5.8,0.4,green,5.0 to 5.9
-Alzate,537,67.125,1.75,Brighton,4.5,0.1,darkgreen,Less than 5.0
-Barnes (LEI),172,63.8,3.0,Leicester,5.9,0.9,green,5.0 to 5.9
-Bernardo Silva,218,57.6,3.6,Man City,7.9,9.8,greenyellow,7.0 to 7.9
-Billing,476,75.4,1.7,Bournemouth,5.0,0.1,green,5.0 to 5.9
-Buendía,283,78.0,3.1,Norwich,6.0,0.8,lime,6.0 to 6.9
-Cantwell,287,55.8,3.8,Norwich,4.7,19.5,darkgreen,Less than 5.0
-Capoue,373,63.0,1.3,Watford,4.8,0.3,darkgreen,Less than 5.0
-Cork,102,81.0,2.3,Burnley,4.9,0.2,darkgreen,Less than 5.0
-David Silva,219,72.4,4.3,Man City,7.5,6.6,greenyellow,7.0 to 7.9
-De Bruyne,215,77.3,5.9,Man City,10.3,41.3,darkorange,10.0 to 10.9
-Dendoncker,420,79.6,2.5,Wolves,4.4,10.1,darkgreen,Less than 5.0
-Dier,350,46.2,1.0,Spurs,4.9,0.2,darkgreen,Less than 5.0
-Doucouré,368,86.1,1.9,Watford,5.6,0.9,green,5.0 to 5.9
-Douglas Luiz,470,63.5,2.6,Aston Villa,4.5,3.6,darkgreen,Less than 5.0
-El Ghazi,30,77.1,3.5,Aston Villa,5.5,1.2,green,5.0 to 5.9
-Fabinho,197,54.0,2.2,Liverpool,5.4,1.1,green,5.0 to 5.9
-Felipe Anderson,390,71.8,2.4,West Ham,6.7,3.0,lime,6.0 to 6.9
-Fernandinho,221,76.9,1.5,Man City,5.2,0.7,green,5.0 to 5.9
-Fleck,301,74.8,6.0,Sheffield Utd,4.9,1.5,darkgreen,Less than 5.0
+Alli,344,53.90909090909091,4.818181818181818,Spurs,8.8,14.1,gold,8.0 to 8.9
+Almirón,266,86.63636363636364,3.0,Newcastle,5.8,0.4,green,5.0 to 5.9
+Alzate,537,59.666666666666664,1.5555555555555556,Brighton,4.5,0.1,darkgreen,Less than 5.0
+Barnes (LEI),172,65.88888888888889,3.2222222222222223,Leicester,5.9,0.8,green,5.0 to 5.9
+Bernardo Silva,218,60.54545454545455,3.4545454545454546,Man City,7.9,9.7,greenyellow,7.0 to 7.9
+Billing,476,76.27272727272727,2.0,Bournemouth,5.0,0.1,green,5.0 to 5.9
+Buendía,283,79.0909090909091,3.1818181818181817,Norwich,6.0,0.8,lime,6.0 to 6.9
+Cantwell,287,58.54545454545455,4.363636363636363,Norwich,4.8,20.6,darkgreen,Less than 5.0
+Capoue,373,64.18181818181819,1.3636363636363635,Watford,4.8,0.3,darkgreen,Less than 5.0
+Ceballos,469,48.22222222222222,2.3333333333333335,Arsenal,5.2,3.4,green,5.0 to 5.9
+Cork,102,80.0,2.2222222222222223,Burnley,4.9,0.2,darkgreen,Less than 5.0
+David Silva,219,65.81818181818181,3.909090909090909,Man City,7.5,5.7,greenyellow,7.0 to 7.9
+De Bruyne,215,78.45454545454545,5.7272727272727275,Man City,10.4,45.1,darkorange,10.0 to 10.9
+Dendoncker,420,78.44444444444444,2.6666666666666665,Wolves,4.4,10.0,darkgreen,Less than 5.0
+Dier,350,46.09090909090909,1.0,Spurs,4.9,0.2,darkgreen,Less than 5.0
+Doucouré,368,84.45454545454545,1.9090909090909092,Watford,5.6,0.9,green,5.0 to 5.9
+Douglas Luiz,470,65.9090909090909,2.5454545454545454,Aston Villa,4.4,3.5,darkgreen,Less than 5.0
+El Ghazi,30,76.18181818181819,3.272727272727273,Aston Villa,5.5,1.3,green,5.0 to 5.9
+Fabinho,197,60.0,2.4444444444444446,Liverpool,5.4,1.1,green,5.0 to 5.9
+Felipe Anderson,390,71.8,2.4,West Ham,6.7,2.9,lime,6.0 to 6.9
+Fernandinho,221,78.0909090909091,1.5454545454545454,Man City,5.2,0.7,green,5.0 to 5.9
+Fleck,301,73.11111111111111,5.0,Sheffield Utd,4.9,1.6,darkgreen,Less than 5.0
 Fornals,399,47.5,2.3,West Ham,6.0,0.3,lime,6.0 to 6.9
-Fraser,75,75.3,2.6,Bournemouth,6.9,3.0,lime,6.0 to 6.9
-Fred,244,57.9,1.3,Man Utd,5.3,0.2,green,5.0 to 5.9
-Grealish,29,81.0,5.0,Aston Villa,6.2,9.8,lime,6.0 to 6.9
-Groß,49,58.1,2.3,Brighton,6.4,0.6,lime,6.0 to 6.9
-Guendouzi,21,81.0,2.4,Arsenal,4.5,7.5,darkgreen,Less than 5.0
-Hayden,271,72.0,2.0,Newcastle,4.4,3.9,darkgreen,Less than 5.0
-Henderson (LIV),198,63.0,2.7,Liverpool,5.4,1.0,green,5.0 to 5.9
-Hendrick,100,71.3,2.9,Burnley,5.4,0.1,green,5.0 to 5.9
-Højbjerg,325,81.0,1.9,Southampton,4.8,0.4,darkgreen,Less than 5.0
-Iwobi,17,65.6,2.4,Everton,5.6,1.2,green,5.0 to 5.9
-James (MUN),243,81.6,3.8,Man Utd,6.1,11.6,lime,6.0 to 6.9
-Jorginho,118,64.7,3.3,Chelsea,5.0,3.5,green,5.0 to 5.9
-Kanté,119,56.7,2.0,Chelsea,5.0,4.7,green,5.0 to 5.9
-Kouyaté,139,70.5,2.0,Crystal Palace,4.9,0.2,darkgreen,Less than 5.0
-Kovacic,432,58.0,1.1,Chelsea,5.3,1.2,green,5.0 to 5.9
-Lerma,82,68.8,1.4,Bournemouth,4.8,0.1,darkgreen,Less than 5.0
-Lingard,241,46.3,1.2,Man Utd,6.3,0.8,lime,6.0 to 6.9
-Lucas Moura,345,48.9,3.6,Spurs,7.0,4.7,greenyellow,7.0 to 7.9
-Maddison,171,78.7,4.2,Leicester,7.8,27.7,greenyellow,7.0 to 7.9
-Mané,192,81.2,7.2,Liverpool,12.2,39.0,red,12.0 and over
-Martial,239,53.7,2.9,Man Utd,7.7,7.2,greenyellow,7.0 to 7.9
-McArthur,138,86.7,2.9,Crystal Palace,5.2,0.7,green,5.0 to 5.9
-McGinn,31,90.0,3.2,Aston Villa,5.7,8.5,green,5.0 to 5.9
-McLean,286,72.9,2.3,Norwich,4.9,0.2,darkgreen,Less than 5.0
-McNeil,97,86.5,3.7,Burnley,6.0,0.8,lime,6.0 to 6.9
-McTominay,248,80.4,3.0,Man Utd,5.1,2.5,green,5.0 to 5.9
-Milivojevic,134,88.5,2.7,Crystal Palace,6.7,2.4,lime,6.0 to 6.9
-Mooy,516,46.5,1.3,Brighton,4.8,0.2,darkgreen,Less than 5.0
-Mount,463,86.9,3.8,Chelsea,6.5,25.5,lime,6.0 to 6.9
-Moutinho,415,86.8,3.2,Wolves,5.4,5.7,green,5.0 to 5.9
-Nakamba,491,52.4,0.9,Aston Villa,4.4,1.0,darkgreen,Less than 5.0
-Ndidi,176,90.0,3.2,Leicester,5.0,2.7,green,5.0 to 5.9
-Neves,414,76.3,3.3,Wolves,5.3,5.1,green,5.0 to 5.9
+Fraser,75,76.63636363636364,2.5454545454545454,Bournemouth,6.9,3.0,lime,6.0 to 6.9
+Fred,244,54.333333333333336,1.2222222222222223,Man Utd,5.3,0.2,green,5.0 to 5.9
+Grealish,29,81.81818181818181,5.2727272727272725,Aston Villa,6.3,12.5,lime,6.0 to 6.9
+Groß,49,56.90909090909091,2.1818181818181817,Brighton,6.4,0.6,lime,6.0 to 6.9
+Guendouzi,21,80.0,2.4444444444444446,Arsenal,4.5,7.3,darkgreen,Less than 5.0
+Gündogan,222,46.27272727272727,2.1818181818181817,Man City,5.2,1.3,green,5.0 to 5.9
+Hayden,271,71.18181818181819,2.090909090909091,Newcastle,4.4,3.8,darkgreen,Less than 5.0
+Henderson (LIV),198,60.0,2.7777777777777777,Liverpool,5.4,1.0,green,5.0 to 5.9
+Hendrick,100,69.22222222222223,2.888888888888889,Burnley,5.4,0.1,green,5.0 to 5.9
+Højbjerg,325,80.0,2.0,Southampton,4.8,0.4,darkgreen,Less than 5.0
+Iwobi,17,60.54545454545455,2.272727272727273,Everton,5.6,1.1,green,5.0 to 5.9
+James (MUN),243,81.22222222222223,3.6666666666666665,Man Utd,6.2,11.9,lime,6.0 to 6.9
+Jorginho,118,63.333333333333336,3.3333333333333335,Chelsea,5.0,3.4,green,5.0 to 5.9
+Kanté,119,53.0,2.0,Chelsea,5.0,4.7,green,5.0 to 5.9
+Kouyaté,139,71.0,2.0,Crystal Palace,4.9,0.2,darkgreen,Less than 5.0
+Kovacic,432,61.666666666666664,1.2222222222222223,Chelsea,5.3,1.2,green,5.0 to 5.9
+Lerma,82,70.72727272727273,1.4545454545454546,Bournemouth,4.8,0.2,darkgreen,Less than 5.0
+Lucas Moura,345,51.09090909090909,3.4545454545454546,Spurs,7.1,5.2,greenyellow,7.0 to 7.9
+Maddison,171,77.44444444444444,4.444444444444445,Leicester,7.8,27.2,greenyellow,7.0 to 7.9
+Mahrez,217,45.81818181818182,4.545454545454546,Man City,8.3,3.7,gold,8.0 to 8.9
+Mané,192,80.22222222222223,7.333333333333333,Liverpool,12.2,35.9,red,12.0 and over
+Martial,239,49.666666666666664,3.0,Man Utd,7.7,7.6,greenyellow,7.0 to 7.9
+McArthur,138,86.33333333333333,3.0,Crystal Palace,5.2,0.7,green,5.0 to 5.9
+McGinn,31,82.45454545454545,3.0,Aston Villa,5.7,7.5,green,5.0 to 5.9
+McLean,286,74.45454545454545,2.272727272727273,Norwich,4.9,0.2,darkgreen,Less than 5.0
+McNeil,97,86.11111111111111,3.7777777777777777,Burnley,6.0,0.7,lime,6.0 to 6.9
+McTominay,248,79.33333333333333,3.111111111111111,Man Utd,5.1,2.5,green,5.0 to 5.9
+Milivojevic,134,88.33333333333333,2.7777777777777777,Crystal Palace,6.7,2.4,lime,6.0 to 6.9
+Mooy,516,50.45454545454545,1.3636363636363635,Brighton,4.8,0.2,darkgreen,Less than 5.0
+Mount,463,86.55555555555556,4.0,Chelsea,6.5,24.4,lime,6.0 to 6.9
+Moutinho,415,86.44444444444444,3.4444444444444446,Wolves,5.4,5.8,green,5.0 to 5.9
+Nakamba,491,55.09090909090909,1.0,Aston Villa,4.4,1.0,darkgreen,Less than 5.0
+Ndidi,176,90.0,3.111111111111111,Leicester,5.0,2.7,green,5.0 to 5.9
+Neves,414,74.77777777777777,3.4444444444444446,Wolves,5.3,5.1,green,5.0 to 5.9
 Noble,396,74.6,2.4,West Ham,5.0,0.5,green,5.0 to 5.9
-Norwood,302,85.1,2.3,Sheffield Utd,4.9,0.3,darkgreen,Less than 5.0
-Oriol Romeu,328,62.1,1.3,Southampton,4.4,0.9,darkgreen,Less than 5.0
-Pereira (MUN),246,49.5,2.3,Man Utd,5.0,0.5,green,5.0 to 5.9
-Pereyra,369,57.0,2.3,Watford,5.6,0.7,green,5.0 to 5.9
-Pröpper,54,81.0,3.3,Brighton,4.9,0.4,darkgreen,Less than 5.0
-Pulisic,431,56.8,2.6,Chelsea,7.4,11.6,greenyellow,7.0 to 7.9
-Pépé,488,64.7,2.7,Arsenal,9.1,2.3,orange,9.0 to 9.9
-Pérez,265,45.5,1.7,Leicester,6.1,5.1,lime,6.0 to 6.9
-Redmond,320,66.3,1.4,Southampton,6.2,0.6,lime,6.0 to 6.9
+Norwood,302,85.11111111111111,2.3333333333333335,Sheffield Utd,4.9,0.3,darkgreen,Less than 5.0
+Oriol Romeu,328,64.0,1.3333333333333333,Southampton,4.4,0.9,darkgreen,Less than 5.0
+Pereira (MUN),246,55.0,2.5555555555555554,Man Utd,5.0,0.5,green,5.0 to 5.9
+Pereyra,369,53.0,2.1818181818181817,Watford,5.6,0.6,green,5.0 to 5.9
+Pröpper,54,81.81818181818181,3.1818181818181817,Brighton,4.9,0.4,darkgreen,Less than 5.0
+Pulisic,431,56.0,2.5555555555555554,Chelsea,7.3,10.2,greenyellow,7.0 to 7.9
+Pépé,488,61.888888888888886,2.7777777777777777,Arsenal,9.1,2.3,orange,9.0 to 9.9
+Pérez,265,50.55555555555556,1.8888888888888888,Leicester,6.1,4.7,lime,6.0 to 6.9
+Redmond,320,68.66666666666667,1.4444444444444444,Southampton,6.2,0.6,lime,6.0 to 6.9
 Rice,395,90.0,2.2,West Ham,4.7,1.4,darkgreen,Less than 5.0
-Richarlison,150,81.2,5.0,Everton,7.9,8.2,greenyellow,7.0 to 7.9
-Rodrigo,443,65.3,1.9,Man City,5.4,1.1,green,5.0 to 5.9
-Saint-Maximin,500,64.9,2.0,Newcastle,5.4,0.3,green,5.0 to 5.9
-Salah,191,77.8,8.8,Liverpool,12.2,21.5,red,12.0 and over
-Schlupp,137,48.6,2.0,Crystal Palace,5.5,0.1,green,5.0 to 5.9
-Schneiderlin,158,45.9,0.8,Everton,4.4,0.7,darkgreen,Less than 5.0
-Shelvey,269,58.0,4.3,Newcastle,5.1,1.7,green,5.0 to 5.9
-Sigurdsson,151,72.9,2.7,Everton,7.4,2.7,greenyellow,7.0 to 7.9
-Sissoko,349,90.0,4.6,Spurs,4.9,2.2,darkgreen,Less than 5.0
+Richarlison,150,82.0,4.818181818181818,Everton,7.9,9.4,greenyellow,7.0 to 7.9
+Rodrigo,443,60.36363636363637,1.8181818181818181,Man City,5.4,1.1,green,5.0 to 5.9
+Saint-Maximin,500,59.0,1.8181818181818181,Newcastle,5.4,0.3,green,5.0 to 5.9
+Salah,191,76.44444444444444,8.0,Liverpool,12.2,21.7,red,12.0 and over
+Schlupp,137,54.0,2.2222222222222223,Crystal Palace,5.5,0.1,green,5.0 to 5.9
+Shelvey,269,60.90909090909091,4.181818181818182,Newcastle,5.1,1.7,green,5.0 to 5.9
+Sigurdsson,151,74.45454545454545,2.6363636363636362,Everton,7.3,2.6,greenyellow,7.0 to 7.9
+Sissoko,349,90.0,4.2727272727272725,Spurs,4.9,2.3,darkgreen,Less than 5.0
 Snodgrass,393,55.0,2.7,West Ham,5.2,0.3,green,5.0 to 5.9
-Son,342,73.5,7.8,Spurs,10.1,22.3,darkorange,10.0 to 10.9
-Stephens (BHA),57,87.2,2.8,Brighton,4.4,2.2,darkgreen,Less than 5.0
-Sterling,214,79.5,3.1,Man City,11.8,24.5,orangered,11.0 to 11.9
-Tettey,289,54.3,3.4,Norwich,4.5,0.3,darkgreen,Less than 5.0
-Tielemans,448,87.1,4.4,Leicester,6.6,7.9,lime,6.0 to 6.9
-Torreira,19,49.8,1.5,Arsenal,4.7,1.2,darkgreen,Less than 5.0
-Traoré,417,73.8,3.8,Wolves,5.3,5.7,green,5.0 to 5.9
-Trossard,421,52.1,4.1,Brighton,5.8,0.3,green,5.0 to 5.9
-Walcott,153,52.4,1.8,Everton,6.2,0.4,lime,6.0 to 6.9
-Ward-Prowse,321,90.0,3.7,Southampton,5.9,2.1,green,5.0 to 5.9
-Westwood,101,72.0,4.1,Burnley,5.4,0.3,green,5.0 to 5.9
-Wijnaldum,199,78.0,2.6,Liverpool,5.4,2.5,green,5.0 to 5.9
-Willian,113,65.4,3.3,Chelsea,7.0,2.0,greenyellow,7.0 to 7.9
-Zaha,133,83.5,4.2,Crystal Palace,6.8,12.6,lime,6.0 to 6.9
+Son,342,72.36363636363636,7.0,Spurs,10.0,19.3,darkorange,10.0 to 10.9
+Stephens (BHA),57,87.45454545454545,2.727272727272727,Brighton,4.4,2.2,darkgreen,Less than 5.0
+Sterling,214,80.27272727272727,3.272727272727273,Man City,11.8,25.0,orangered,11.0 to 11.9
+Tettey,289,57.18181818181818,3.272727272727273,Norwich,4.5,0.3,darkgreen,Less than 5.0
+Tielemans,448,86.77777777777777,4.666666666666667,Leicester,6.5,7.3,lime,6.0 to 6.9
+Torreira,19,46.44444444444444,1.4444444444444444,Arsenal,4.7,1.2,darkgreen,Less than 5.0
+Traoré,417,72.0,3.111111111111111,Wolves,5.3,6.6,green,5.0 to 5.9
+Trossard,421,51.45454545454545,3.8181818181818183,Brighton,5.8,0.3,green,5.0 to 5.9
+Walcott,153,47.63636363636363,1.6363636363636365,Everton,6.2,0.4,lime,6.0 to 6.9
+Ward-Prowse,321,90.0,3.888888888888889,Southampton,5.9,2.1,green,5.0 to 5.9
+Westwood,101,70.0,3.6666666666666665,Burnley,5.4,0.3,green,5.0 to 5.9
+Wijnaldum,199,80.22222222222223,2.7777777777777777,Liverpool,5.4,2.3,green,5.0 to 5.9
+Willian,113,65.55555555555556,3.3333333333333335,Chelsea,7.0,2.5,greenyellow,7.0 to 7.9
+Zaha,133,82.77777777777777,3.7777777777777777,Crystal Palace,6.8,13.2,lime,6.0 to 6.9

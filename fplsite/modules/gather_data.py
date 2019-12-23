@@ -837,7 +837,7 @@ def whoscored_team_table_to_csv():
     driver.get('https://www.whoscored.com/Regions/252/Tournaments/2/England-Premier-League')
 
     table_df = pd.DataFrame()
-    time.sleep(3)
+    time.sleep(5)
     wide = driver.find_element_by_link_text('Wide')
     wide.click()
     time.sleep(3) 
