@@ -322,6 +322,8 @@ def teams(request):
         for key, value in gw_fixture_dict.items():
             if (len(value) == 0):
                 gw_fixture_dict[key] = ['None']
+            if (len(value) == 2):
+                gw_fixture_dict[key] = [value[0] + ', ' + value[1]]
         fixture_array.append(gw_fixture_dict)
     
     fixture_dict = {
@@ -333,6 +335,7 @@ def teams(request):
             for fix in value:
                 fixture_dict[key].append(fix)
     
+    print("FIXTURE DICT: ", fixture_dict)
     cols = []
     color_cols = ['color0', 'color1', 'color2', 'color3', 'color4', 'color5']
     for i in range(current_gw + 1, max_gw):

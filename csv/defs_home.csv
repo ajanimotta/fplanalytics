@@ -1,84 +1,82 @@
 web_name,id,avg_minutes,avg_points,team_name,cost,selected_by_percent,color,range
-Aarons (NOR),274,81.81818181818181,0.7272727272727273,Norwich,4.4,1.1,green,4.3 to 4.7
-Aké,59,66.54545454545455,2.5454545454545454,Bournemouth,4.9,8.5,greenyellow,4.8 to 5.2
-Alderweireld,331,81.81818181818181,3.6363636363636362,Spurs,5.4,5.6,gold,5.3 to 5.7
-Alexander-Arnold,182,89.11111111111111,4.111111111111111,Liverpool,7.2,28.8,orangered,6.8 to 7.2
-Aurier,336,64.72727272727273,3.4545454545454546,Spurs,5.1,7.9,greenyellow,4.8 to 5.2
-Azpilicueta,105,70.0,2.6666666666666665,Chelsea,5.8,5.0,orange,5.8 to 6.2
-Balbuena,382,54.0,1.0,West Ham,4.3,0.4,green,4.3 to 4.7
-Baldock,294,90.0,4.0,Sheffield Utd,4.9,9.2,greenyellow,4.8 to 5.2
-Basham,423,85.11111111111111,3.5555555555555554,Sheffield Utd,4.5,0.7,green,4.3 to 4.7
-Bednarek,307,90.0,1.0,Southampton,4.4,0.7,green,4.3 to 4.7
-Bertrand,305,54.666666666666664,0.8888888888888888,Southampton,4.8,0.6,greenyellow,4.8 to 5.2
-Burn,475,90.0,1.9090909090909092,Brighton,4.5,0.3,green,4.3 to 4.7
-Byram,454,46.18181818181818,0.5454545454545454,Norwich,4.4,0.1,green,4.3 to 4.7
-Cahill,503,60.0,2.0,Crystal Palace,4.5,1.5,green,4.3 to 4.7
-Cathcart,358,75.36363636363636,3.3636363636363638,Watford,4.3,1.4,green,4.3 to 4.7
-Chambers,467,50.0,2.111111111111111,Arsenal,4.4,1.2,green,4.3 to 4.7
-Chilwell,161,80.0,3.4444444444444446,Leicester,5.8,12.5,orange,5.8 to 6.2
-Coady,403,90.0,2.6666666666666665,Wolves,5.0,1.5,greenyellow,4.8 to 5.2
-Cresswell,376,68.3,1.9,West Ham,4.7,1.4,green,4.3 to 4.7
-Cédric,486,52.888888888888886,1.1111111111111112,Southampton,4.8,0.2,greenyellow,4.8 to 5.2
-David Luiz,106,80.0,3.111111111111111,Arsenal,5.7,4.9,gold,5.3 to 5.7
-Dawson,439,48.0,0.9090909090909091,Watford,4.8,0.2,greenyellow,4.8 to 5.2
-Digne,141,85.9090909090909,3.909090909090909,Everton,5.7,11.5,gold,5.3 to 5.7
-Diop,381,60.3,1.6,West Ham,4.5,2.5,green,4.3 to 4.7
-Doherty,401,72.11111111111111,5.0,Wolves,6.1,4.5,orange,5.8 to 6.2
-Dummett,255,71.81818181818181,2.8181818181818183,Newcastle,4.4,0.3,green,4.3 to 4.7
-Dunk,42,81.81818181818181,2.3636363636363638,Brighton,4.7,13.2,green,4.3 to 4.7
-Egan,295,78.66666666666667,3.5555555555555554,Sheffield Utd,4.5,0.7,green,4.3 to 4.7
-Emerson,107,51.55555555555556,1.4444444444444444,Chelsea,5.5,0.8,gold,5.3 to 5.7
-Engels,455,75.54545454545455,2.272727272727273,Aston Villa,4.5,0.6,green,4.3 to 4.7
-Evans,162,90.0,5.0,Leicester,5.2,5.8,greenyellow,4.8 to 5.2
-Fernández,254,57.72727272727273,4.2727272727272725,Newcastle,4.4,0.6,green,4.3 to 4.7
-Fredericks,380,72.7,1.8,West Ham,4.5,0.6,green,4.3 to 4.7
-Godfrey,273,81.81818181818181,0.8181818181818182,Norwich,4.4,0.2,green,4.3 to 4.7
-Guilbert,458,58.0,3.4545454545454546,Aston Villa,4.4,0.9,green,4.3 to 4.7
-Holgate,478,50.72727272727273,1.4545454545454546,Everton,4.4,0.3,green,4.3 to 4.7
-Jonny,402,90.0,2.3333333333333335,Wolves,5.4,1.1,gold,5.3 to 5.7
-Kabasele,354,65.45454545454545,3.909090909090909,Watford,4.3,0.2,green,4.3 to 4.7
-Keane,143,67.0909090909091,2.090909090909091,Everton,5.3,2.3,gold,5.3 to 5.7
-Kelly (CRY),128,50.888888888888886,3.0,Crystal Palace,4.4,31.9,green,4.3 to 4.7
-Kiko Femenía,357,66.81818181818181,2.272727272727273,Watford,4.2,0.5,darkgreen,Less than 4.3
-Kolasinac,3,46.333333333333336,1.5555555555555556,Arsenal,5.2,0.6,greenyellow,4.8 to 5.2
-Lewis (NOR),276,50.72727272727273,1.1818181818181819,Norwich,4.5,0.3,green,4.3 to 4.7
-Lindelöf,225,90.0,3.2222222222222223,Man Utd,5.3,1.3,gold,5.3 to 5.7
-Lovren,186,50.0,1.2222222222222223,Liverpool,5.3,0.3,gold,5.3 to 5.7
-Lowton,85,50.0,2.111111111111111,Burnley,4.3,0.5,green,4.3 to 4.7
-Lundstram,297,87.88888888888889,6.666666666666667,Sheffield Utd,5.2,49.6,greenyellow,4.8 to 5.2
-Maguire,160,90.0,2.5555555555555554,Man Utd,5.3,11.0,gold,5.3 to 5.7
-Manquillo,256,58.36363636363637,1.9090909090909092,Newcastle,4.3,0.3,green,4.3 to 4.7
-Mee,83,90.0,3.4444444444444446,Burnley,5.0,0.9,greenyellow,4.8 to 5.2
-Mepham,61,49.18181818181818,1.5454545454545454,Bournemouth,4.3,0.8,green,4.3 to 4.7
-Mina,142,65.45454545454545,2.0,Everton,5.3,2.1,gold,5.3 to 5.7
-Mings,445,63.27272727272727,2.090909090909091,Aston Villa,4.5,3.6,green,4.3 to 4.7
-Montoya,38,50.54545454545455,2.272727272727273,Brighton,4.5,0.6,green,4.3 to 4.7
-O'Connell,293,90.0,3.888888888888889,Sheffield Utd,4.6,2.0,green,4.3 to 4.7
-Ogbonna,377,63.0,4.0,West Ham,4.5,1.0,green,4.3 to 4.7
-Otamendi,208,46.90909090909091,4.2727272727272725,Man City,5.0,2.6,greenyellow,4.8 to 5.2
-Pereira (LEI),159,90.0,6.444444444444445,Leicester,6.5,17.1,darkorange,6.3 to 6.7
-Pieters,447,72.0,3.3333333333333335,Burnley,4.5,6.4,green,4.3 to 4.7
-Rico,65,81.81818181818181,2.272727272727273,Bournemouth,4.4,15.1,green,4.3 to 4.7
-Robertson,181,83.44444444444444,2.4444444444444446,Liverpool,7.0,19.7,orangered,6.8 to 7.2
-Saïss,407,50.0,1.6666666666666667,Wolves,4.4,0.5,green,4.3 to 4.7
-Schär,252,52.63636363636363,2.6363636363636362,Newcastle,5.0,1.5,greenyellow,4.8 to 5.2
-Sidibé,511,55.0,3.3636363636363638,Everton,5.3,0.3,gold,5.3 to 5.7
-Sokratis,5,90.0,2.0,Arsenal,4.9,1.4,greenyellow,4.8 to 5.2
-Steve Cook,58,57.27272727272727,2.5454545454545454,Bournemouth,5.0,0.2,greenyellow,4.8 to 5.2
-Stevens,291,90.0,3.5555555555555554,Sheffield Utd,5.1,2.7,greenyellow,4.8 to 5.2
-Sánchez (TOT),333,69.54545454545455,2.3636363636363638,Spurs,5.3,1.0,gold,5.3 to 5.7
-Söyüncü,164,90.0,4.0,Leicester,5.1,20.1,greenyellow,4.8 to 5.2
-Targett,309,59.27272727272727,2.272727272727273,Aston Villa,4.4,1.6,green,4.3 to 4.7
-Tarkowski,84,90.0,4.555555555555555,Burnley,5.1,4.3,greenyellow,4.8 to 5.2
-Tomkins,124,49.111111111111114,1.4444444444444444,Crystal Palace,5.0,0.5,greenyellow,4.8 to 5.2
-Tomori,529,60.0,2.6666666666666665,Chelsea,4.8,4.5,greenyellow,4.8 to 5.2
-Vertonghen,330,63.90909090909091,4.0,Spurs,5.2,1.9,greenyellow,4.8 to 5.2
-Walker,203,66.18181818181819,2.272727272727273,Man City,5.8,11.8,orange,5.8 to 6.2
-Wan-Bissaka,122,80.0,2.7777777777777777,Man Utd,5.3,15.2,gold,5.3 to 5.7
-Ward (CRY),126,67.66666666666667,3.5555555555555554,Crystal Palace,4.3,1.4,green,4.3 to 4.7
-Webster,493,68.63636363636364,1.1818181818181819,Brighton,4.4,0.2,green,4.3 to 4.7
-Willems,498,76.0909090909091,3.4545454545454546,Newcastle,4.7,3.7,green,4.3 to 4.7
-Young,224,46.22222222222222,1.3333333333333333,Man Utd,5.4,0.4,gold,5.3 to 5.7
-Zouma,459,75.33333333333333,2.3333333333333335,Chelsea,4.7,2.0,green,4.3 to 4.7
-van Aanholt,123,73.11111111111111,2.6666666666666665,Crystal Palace,5.5,5.9,gold,5.3 to 5.7
-van Dijk,183,90.0,4.777777777777778,Liverpool,6.4,39.3,darkorange,6.3 to 6.7
+Aarons (NOR),274,81.81818181818181,0.7272727272727273,Norwich,4.3,1.1,green,4.3 to 4.7
+Aké,59,66.4,2.6,Bournemouth,4.9,6.8,greenyellow,4.8 to 5.2
+Alderweireld,331,81.0,3.0,Spurs,5.4,5.2,gold,5.3 to 5.7
+Alexander-Arnold,182,89.27272727272727,4.636363636363637,Liverpool,7.4,37.2,red,7.3 and over
+Aurier,336,64.4,3.1,Spurs,5.1,7.4,greenyellow,4.8 to 5.2
+Azpilicueta,105,72.0,2.5,Chelsea,5.8,4.8,orange,5.8 to 6.2
+Balbuena,382,54.0,1.5,West Ham,4.3,0.4,green,4.3 to 4.7
+Baldock,294,90.0,4.2,Sheffield Utd,5.0,11.3,greenyellow,4.8 to 5.2
+Bardsley,86,49.09090909090909,1.1818181818181819,Burnley,4.3,0.2,green,4.3 to 4.7
+Basham,423,85.6,3.4,Sheffield Utd,4.5,0.7,green,4.3 to 4.7
+Bednarek,307,90.0,1.4545454545454546,Southampton,4.4,0.7,green,4.3 to 4.7
+Bertrand,305,61.09090909090909,1.4545454545454546,Southampton,4.8,0.6,greenyellow,4.8 to 5.2
+Burn,475,83.72727272727273,2.5454545454545454,Brighton,4.5,0.3,green,4.3 to 4.7
+Cahill,503,54.0,1.8,Crystal Palace,4.4,1.1,green,4.3 to 4.7
+Cathcart,358,74.81818181818181,3.3636363636363638,Watford,4.3,1.7,green,4.3 to 4.7
+Chilwell,161,81.0,3.1,Leicester,5.7,11.2,gold,5.3 to 5.7
+Coady,403,90.0,2.5,Wolves,5.0,1.6,greenyellow,4.8 to 5.2
+Coleman,144,45.4,2.0,Everton,5.3,1.2,gold,5.3 to 5.7
+Cresswell,376,67.3,2.4,West Ham,4.7,1.4,green,4.3 to 4.7
+Cédric,486,59.63636363636363,1.6363636363636365,Southampton,4.8,0.2,greenyellow,4.8 to 5.2
+David Luiz,106,81.81818181818181,3.090909090909091,Arsenal,5.7,4.8,gold,5.3 to 5.7
+Dawson,439,58.90909090909091,1.0909090909090908,Watford,4.8,0.2,greenyellow,4.8 to 5.2
+Delph,205,52.1,1.8,Everton,5.3,0.2,gold,5.3 to 5.7
+Digne,141,87.3,4.7,Everton,5.7,11.7,gold,5.3 to 5.7
+Diop,381,69.3,1.6,West Ham,4.4,2.2,green,4.3 to 4.7
+Doherty,401,73.9,5.3,Wolves,6.1,4.9,orange,5.8 to 6.2
+Duffy (BHA),37,45.81818181818182,1.7272727272727273,Brighton,4.8,1.0,greenyellow,4.8 to 5.2
+Dummett,255,55.45454545454545,2.4545454545454546,Newcastle,4.4,0.2,green,4.3 to 4.7
+Dunk,42,81.81818181818181,3.4545454545454546,Brighton,4.7,13.5,green,4.3 to 4.7
+Egan,295,79.8,3.4,Sheffield Utd,4.5,0.9,green,4.3 to 4.7
+Emerson,107,55.4,1.4,Chelsea,5.5,0.8,gold,5.3 to 5.7
+Engels,455,69.7,2.3,Aston Villa,4.5,0.5,green,4.3 to 4.7
+Evans,162,90.0,4.5,Leicester,5.3,6.8,gold,5.3 to 5.7
+Fernández,254,57.72727272727273,2.727272727272727,Newcastle,4.4,0.7,green,4.3 to 4.7
+Fredericks,380,72.7,2.8,West Ham,4.5,0.6,green,4.3 to 4.7
+Godfrey,273,65.45454545454545,0.6363636363636364,Norwich,4.4,0.2,green,4.3 to 4.7
+Guilbert,458,61.4,3.6,Aston Villa,4.4,0.7,green,4.3 to 4.7
+Holgate,478,46.8,1.8,Everton,4.4,0.7,green,4.3 to 4.7
+Jonny,402,88.2,2.2,Wolves,5.4,1.1,gold,5.3 to 5.7
+Kabasele,354,63.63636363636363,3.272727272727273,Watford,4.3,0.7,green,4.3 to 4.7
+Keane,143,55.8,1.9,Everton,5.3,2.1,gold,5.3 to 5.7
+Kelly (CRY),128,54.8,2.9,Crystal Palace,4.4,32.3,green,4.3 to 4.7
+Kiko Femenía,357,64.0,2.0,Watford,4.2,0.9,darkgreen,Less than 4.3
+Lewis (NOR),276,55.63636363636363,1.0,Norwich,4.5,0.2,green,4.3 to 4.7
+Lindelöf,225,90.0,3.1,Man Utd,5.3,1.3,gold,5.3 to 5.7
+Lundstram,297,88.1,6.2,Sheffield Utd,5.1,46.7,greenyellow,4.8 to 5.2
+Maguire,160,90.0,2.5,Man Utd,5.2,10.4,greenyellow,4.8 to 5.2
+Manquillo,256,46.09090909090909,1.5454545454545454,Newcastle,4.3,0.3,green,4.3 to 4.7
+Mee,83,90.0,2.909090909090909,Burnley,5.0,0.9,greenyellow,4.8 to 5.2
+Mepham,61,45.1,1.6,Bournemouth,4.3,0.8,green,4.3 to 4.7
+Mina,142,81.0,2.9,Everton,5.3,2.1,gold,5.3 to 5.7
+Mings,445,65.2,2.3,Aston Villa,4.5,2.9,green,4.3 to 4.7
+Montoya,38,66.9090909090909,3.0,Brighton,4.4,0.7,green,4.3 to 4.7
+O'Connell,293,90.0,3.7,Sheffield Utd,4.6,2.2,green,4.3 to 4.7
+Ogbonna,377,54.0,3.2,West Ham,4.5,1.4,green,4.3 to 4.7
+Pereira (LEI),159,90.0,5.8,Leicester,6.4,15.2,darkorange,6.3 to 6.7
+Pieters,447,58.90909090909091,2.727272727272727,Burnley,4.4,5.3,green,4.3 to 4.7
+Rico,65,72.0,2.3,Bournemouth,4.4,14.3,green,4.3 to 4.7
+Robertson,181,84.36363636363636,3.6363636363636362,Liverpool,7.0,18.8,orangered,6.8 to 7.2
+Saïss,407,54.0,1.6,Wolves,4.4,0.8,green,4.3 to 4.7
+Schär,252,60.81818181818182,3.1818181818181817,Newcastle,5.0,1.4,greenyellow,4.8 to 5.2
+Sidibé,511,51.4,3.7,Everton,5.3,1.6,gold,5.3 to 5.7
+Sokratis,5,81.81818181818181,3.0,Arsenal,4.9,1.4,greenyellow,4.8 to 5.2
+Stephens (SOU),308,53.18181818181818,1.7272727272727273,Southampton,4.3,0.7,green,4.3 to 4.7
+Steve Cook,58,72.0,3.0,Bournemouth,5.0,0.3,greenyellow,4.8 to 5.2
+Stevens,291,90.0,3.4,Sheffield Utd,5.1,2.4,greenyellow,4.8 to 5.2
+Sánchez (TOT),333,67.5,1.5,Spurs,5.3,0.9,gold,5.3 to 5.7
+Söyüncü,164,90.0,3.6,Leicester,5.1,19.4,greenyellow,4.8 to 5.2
+Targett,309,58.8,3.3,Aston Villa,4.4,1.3,green,4.3 to 4.7
+Tarkowski,84,90.0,3.8181818181818183,Burnley,5.1,4.4,greenyellow,4.8 to 5.2
+Tomkins,124,53.2,1.5,Crystal Palace,5.0,0.9,greenyellow,4.8 to 5.2
+Tomori,529,63.0,2.4,Chelsea,4.7,4.0,green,4.3 to 4.7
+Vertonghen,330,61.3,2.4,Spurs,5.2,2.0,greenyellow,4.8 to 5.2
+Walker,203,58.0,2.8181818181818183,Man City,5.8,11.7,orange,5.8 to 6.2
+Wan-Bissaka,122,81.0,3.1,Man Utd,5.3,14.5,gold,5.3 to 5.7
+Ward (CRY),126,60.9,3.2,Crystal Palace,4.3,1.1,green,4.3 to 4.7
+Webster,493,60.45454545454545,1.1818181818181819,Brighton,4.4,0.6,green,4.3 to 4.7
+Willems,498,71.36363636363636,3.1818181818181817,Newcastle,4.6,2.7,green,4.3 to 4.7
+Zouma,459,72.3,2.2,Chelsea,4.7,2.0,green,4.3 to 4.7
+van Aanholt,123,72.2,2.6,Crystal Palace,5.5,5.2,gold,5.3 to 5.7
+van Dijk,183,90.0,5.090909090909091,Liverpool,6.4,40.0,darkorange,6.3 to 6.7
