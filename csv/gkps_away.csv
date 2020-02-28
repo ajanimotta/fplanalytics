@@ -1,19 +1,21 @@
 web_name,id,avg_minutes,avg_points,team_name,cost,selected_by_percent,color,range
-Alisson,189,50.0,2.111111111111111,Liverpool,6.0,8.6,red,6.0 and over
-Dubravka,262,90.0,3.4,Newcastle,5.0,1.4,gold,5.0 to 5.4
-Ederson,212,73.1,2.7,Man City,6.0,12.1,red,6.0 and over
-Foster,366,90.0,2.7,Watford,4.8,3.0,lime,4.5 to 4.9
-Gazzaniga,341,72.9090909090909,2.1818181818181817,Spurs,4.6,4.3,lime,4.5 to 4.9
-Guaita,131,81.81818181818181,3.090909090909091,Crystal Palace,5.1,3.4,gold,5.0 to 5.4
-Heaton,94,81.27272727272727,1.8181818181818181,Aston Villa,4.5,5.2,lime,4.5 to 4.9
-Henderson (SHU),471,90.0,3.909090909090909,Sheffield Utd,4.9,9.2,lime,4.5 to 4.9
-Kepa,111,90.0,2.1818181818181817,Chelsea,5.5,5.2,orange,5.5 to 5.9
-Krul,280,81.0,2.8,Norwich,4.5,2.1,lime,4.5 to 4.9
-Leno,14,90.0,3.2,Arsenal,5.0,5.2,gold,5.0 to 5.4
-Patrício,411,90.0,2.909090909090909,Wolves,5.2,10.6,gold,5.0 to 5.4
-Pickford,148,90.0,2.4545454545454546,Everton,5.3,7.1,gold,5.0 to 5.4
-Pope,93,90.0,3.1,Burnley,4.7,14.0,lime,4.5 to 4.9
-Ramsdale,494,90.0,4.090909090909091,Bournemouth,4.7,6.1,lime,4.5 to 4.9
-Ryan,47,90.0,4.3,Brighton,4.8,17.1,lime,4.5 to 4.9
-Schmeichel,168,90.0,4.363636363636363,Leicester,5.4,15.4,gold,5.0 to 5.4
-de Gea,235,90.0,2.272727272727273,Man Utd,5.4,12.2,gold,5.0 to 5.4
+Alisson,189,62.30769230769231,3.3076923076923075,Liverpool,6.2,11.4,red,6.0 and over
+Dubravka,262,90.0,3.142857142857143,Newcastle,5.0,1.9,gold,5.0 to 5.4
+Ederson,212,77.92857142857143,3.0714285714285716,Man City,6.0,11.2,red,6.0 and over
+Foster,366,90.0,2.7857142857142856,Watford,4.9,4.3,lime,4.5 to 4.9
+Gazzaniga,341,63.714285714285715,2.7142857142857144,Spurs,4.3,2.1,darkgreen,Less than 4.5
+Guaita,131,83.07692307692308,2.923076923076923,Crystal Palace,5.1,2.0,gold,5.0 to 5.4
+Heaton,94,63.857142857142854,1.4285714285714286,Aston Villa,4.4,2.6,darkgreen,Less than 4.5
+Henderson (SHU),471,90.0,4.3076923076923075,Sheffield Utd,5.2,15.9,gold,5.0 to 5.4
+Kepa,111,83.07692307692308,2.0,Chelsea,5.5,4.3,orange,5.5 to 5.9
+Krul,280,83.57142857142857,2.9285714285714284,Norwich,4.5,2.3,lime,4.5 to 4.9
+Leno,14,90.0,3.3846153846153846,Arsenal,5.0,5.1,gold,5.0 to 5.4
+McCarthy (SOU),318,55.38461538461539,1.9230769230769231,Southampton,4.4,4.2,darkgreen,Less than 4.5
+Patrício,411,90.0,3.230769230769231,Wolves,5.1,9.2,gold,5.0 to 5.4
+Pickford,148,90.0,2.2857142857142856,Everton,5.3,6.6,gold,5.0 to 5.4
+Pope,93,90.0,3.4615384615384617,Burnley,4.8,16.9,lime,4.5 to 4.9
+Ramsdale,494,90.0,3.7857142857142856,Bournemouth,4.6,3.7,lime,4.5 to 4.9
+Reina,603,90.0,2.0,Aston Villa,4.5,0.5,lime,4.5 to 4.9
+Ryan,47,90.0,3.642857142857143,Brighton,4.8,15.0,lime,4.5 to 4.9
+Schmeichel,168,90.0,4.384615384615385,Leicester,5.3,14.1,gold,5.0 to 5.4
+de Gea,235,90.0,2.4615384615384617,Man Utd,5.4,11.4,gold,5.0 to 5.4

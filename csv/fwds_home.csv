@@ -1,25 +1,28 @@
 web_name,id,avg_minutes,avg_points,team_name,cost,selected_by_percent,color,range
-Abraham,460,69.5,4.4,Chelsea,7.8,32.9,greenyellow,7.0 to 7.9
-Agüero,210,54.18181818181818,4.636363636363637,Man City,11.7,10.9,orangered,11.0 to 11.9
-Aubameyang,11,90.0,4.7272727272727275,Arsenal,10.8,18.4,darkorange,10.0 to 10.9
-Ayew,468,81.8,3.5,Crystal Palace,5.0,7.2,green,5.0 to 5.9
-Barnes (BUR),90,67.36363636363636,3.3636363636363638,Burnley,6.2,2.8,lime,6.0 to 6.9
-Callum Wilson,67,80.5,3.8,Bournemouth,7.4,4.7,greenyellow,7.0 to 7.9
-Calvert-Lewin,147,47.6,3.2,Everton,5.8,4.5,green,5.0 to 5.9
-Deulofeu,363,77.36363636363636,3.5454545454545454,Watford,6.1,2.4,lime,6.0 to 6.9
-Firmino,187,74.72727272727273,3.0,Liverpool,9.2,8.8,orange,9.0 to 9.9
-Haller,457,79.4,3.4,West Ham,7.0,2.3,greenyellow,7.0 to 7.9
-Ings,313,68.27272727272727,5.636363636363637,Southampton,6.7,18.7,lime,6.0 to 6.9
-Jiménez,409,86.0,5.4,Wolves,7.5,18.4,greenyellow,7.0 to 7.9
-Joelinton,466,77.81818181818181,1.7272727272727273,Newcastle,5.5,0.9,green,5.0 to 5.9
-Jota (WOL),410,70.4,1.5,Wolves,6.1,3.2,lime,6.0 to 6.9
-Kane,338,89.4,6.0,Spurs,11.0,18.3,orangered,11.0 to 11.9
-King (BOU),68,63.3,3.8,Bournemouth,6.1,3.8,lime,6.0 to 6.9
-Lacazette,12,56.54545454545455,4.0,Arsenal,9.3,1.6,orange,9.0 to 9.9
-Maupay,502,81.72727272727273,4.2727272727272725,Brighton,5.8,2.2,green,5.0 to 5.9
-McGoldrick,303,65.6,1.8,Sheffield Utd,5.4,0.2,green,5.0 to 5.9
-Pukki,278,88.63636363636364,5.545454545454546,Norwich,6.5,15.3,lime,6.0 to 6.9
-Rashford,233,86.0,6.6,Man Utd,9.1,28.8,orange,9.0 to 9.9
-Vardy,166,90.0,7.0,Leicester,10.1,50.1,darkorange,10.0 to 10.9
-Wesley,428,87.7,2.4,Aston Villa,5.6,1.3,green,5.0 to 5.9
-Wood,91,78.36363636363636,4.0,Burnley,6.2,1.0,lime,6.0 to 6.9
+Abraham,460,63.857142857142854,4.0,Chelsea,7.6,20.3,greenyellow,7.0 to 7.9
+Agüero,210,59.69230769230769,5.076923076923077,Man City,11.9,19.2,orangered,11.0 to 11.9
+Aubameyang,11,83.57142857142857,5.214285714285714,Arsenal,10.9,19.0,darkorange,10.0 to 10.9
+Ayew,468,84.14285714285714,3.7857142857142856,Crystal Palace,5.0,7.9,green,5.0 to 5.9
+Barnes (BUR),90,52.92857142857143,2.642857142857143,Burnley,6.1,2.2,lime,6.0 to 6.9
+Callum Wilson,67,82.6923076923077,3.769230769230769,Bournemouth,7.4,4.8,greenyellow,7.0 to 7.9
+Calvert-Lewin,147,57.38461538461539,3.769230769230769,Everton,6.2,13.6,lime,6.0 to 6.9
+Deeney,362,51.07692307692308,2.230769230769231,Watford,6.2,1.7,lime,6.0 to 6.9
+Deulofeu,363,78.61538461538461,3.5384615384615383,Watford,6.1,2.7,lime,6.0 to 6.9
+Firmino,187,77.42857142857143,3.4285714285714284,Liverpool,9.7,18.4,orange,9.0 to 9.9
+Haller,457,81.84615384615384,3.076923076923077,West Ham,6.8,2.3,lime,6.0 to 6.9
+Ings,313,71.64285714285714,5.214285714285714,Southampton,7.1,33.5,greenyellow,7.0 to 7.9
+Jiménez,409,85.78571428571429,5.071428571428571,Wolves,7.9,29.5,greenyellow,7.0 to 7.9
+Joelinton,466,79.6923076923077,1.7692307692307692,Newcastle,5.5,0.9,green,5.0 to 5.9
+Jota (WOL),410,61.214285714285715,2.4285714285714284,Wolves,6.2,4.1,lime,6.0 to 6.9
+Kane,338,68.76923076923077,4.615384615384615,Spurs,10.8,8.6,darkorange,10.0 to 10.9
+King (BOU),68,48.69230769230769,2.923076923076923,Bournemouth,6.1,3.3,lime,6.0 to 6.9
+Lacazette,12,50.0,3.9285714285714284,Arsenal,9.3,2.1,orange,9.0 to 9.9
+Maupay,502,78.61538461538461,4.0,Brighton,5.8,1.9,green,5.0 to 5.9
+McBurnie,501,57.142857142857146,2.5,Sheffield Utd,5.7,0.2,green,5.0 to 5.9
+McGoldrick,303,52.214285714285715,1.4285714285714286,Sheffield Utd,5.4,0.2,green,5.0 to 5.9
+Pukki,278,88.38461538461539,5.538461538461538,Norwich,6.5,13.1,lime,6.0 to 6.9
+Rashford,233,65.57142857142857,5.571428571428571,Man Utd,8.9,9.8,gold,8.0 to 8.9
+Samatta,613,82.0,2.0,Aston Villa,6.0,0.3,lime,6.0 to 6.9
+Vardy,166,85.78571428571429,5.714285714285714,Leicester,9.7,36.1,orange,9.0 to 9.9
+Wesley,428,67.46153846153847,1.8461538461538463,Aston Villa,5.5,0.9,green,5.0 to 5.9
+Wood,91,74.42857142857143,3.7857142857142856,Burnley,6.2,1.3,lime,6.0 to 6.9

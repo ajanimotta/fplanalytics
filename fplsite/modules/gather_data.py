@@ -740,6 +740,9 @@ def understat_player():
     id_filler_df = pd.read_csv(f)
     id_filler_df = id_filler_df[['player_name', 'id']]  
     understat_player_df = pd.merge(understat_player_df, id_filler_df, on = 'player_name', how = 'left')
+    #print(understat_player_df.isnull().sum())
+    #print(len(understat_player_df[understat_player_df['id_x'].isnull()]))
+    #print(understat_player_df[understat_player_df['id_x'].isnull()])
     understat_player_df['id_x'] = understat_player_df['id_x'].mask(understat_player_df['id_x'].isnull(), understat_player_df['id_y'])
     understat_player_df = understat_player_df.rename(columns={"id_x": "id"})
     understat_player_df['id'] = understat_player_df['id'].apply(lambda x: int(x))
