@@ -114,10 +114,6 @@ def fpl_player():
 
 
 
-
-
-
-
 #%%
 # BUILD FIXTURE DATAFRAME containing info ('event', 'id', 'stats', 'team_a', 'team_a_difficulty', 'team_a_score', 'team_h', 
 # 'team_h_difficulty', 'team_h_score')

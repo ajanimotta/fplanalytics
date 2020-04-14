@@ -2,7 +2,15 @@ from django.shortcuts import render
 import math
 from collections import OrderedDict
 import pandas as pd
-from .modules.gather_data import fpl_player, get_players, get_gws, get_fixtures, advanced_team, get_team_ratings, get_gkps_home_away, get_defs_home_away, get_mids_home_away, get_fwds_home_away, get_strong_weak, get_form
+from .modules.fixtures_ratings import get_team_ratings, get_fixtures
+from .modules.players import fpl_player, get_players
+from .modules.gws import get_gws
+from .modules.teams import advanced_team
+from .modules.gkps import get_gkps_home_away
+from .modules.defs import get_defs_home_away
+from .modules.mids import get_mids_home_away
+from .modules.fwds import get_fwds_home_away
+from .modules.form_strength import get_strong_weak, get_form
 from bokeh.plotting import figure
 from bokeh.models import ColumnDataSource, Legend, LegendItem, Panel, Tabs, CustomJS, StringFormatter
 from bokeh.models.widgets import DataTable, TableColumn, Select, HTMLTemplateFormatter, CheckboxButtonGroup, Button
@@ -16,10 +24,15 @@ from bokeh.layouts import layout, gridplot, column, row
 def homepage(request):
     return render(request, 'pages/index.html', {})
 
+
 # elements view--------------------------------------------------------------------------------------------------------------------------
 def elements(request):
     return render(request, 'pages/elements.html', {})
 
+
+#--------------------------------------------------------------------------------------------------------------------------
+#--------------------------------------------------------------------------------------------------------------------------
+#--------------------------------------------------------------------------------------------------------------------------
 # teams view--------------------------------------------------------------------------------------------------------------------------
 def teams(request):
     #TODO: create bokeh components for roi,home/away,etc. plots and return them to render
@@ -458,6 +471,9 @@ def teams(request):
 
     return render(request, 'pages/teams.html', context=context)
 
+#--------------------------------------------------------------------------------------------------------------------------
+#--------------------------------------------------------------------------------------------------------------------------
+#--------------------------------------------------------------------------------------------------------------------------
 # players view--------------------------------------------------------------------------------------------------------------------------
 def players(request):
     players = get_players()
@@ -538,6 +554,9 @@ def players(request):
     }
     return render(request, 'pages/players.html', context=context)
 
+#--------------------------------------------------------------------------------------------------------------------------
+#--------------------------------------------------------------------------------------------------------------------------
+#--------------------------------------------------------------------------------------------------------------------------
 # gkps view--------------------------------------------------------------------------------------------------------------------------
 def gkps(request):
     #TODO: create bokeh components for roi,home/away,etc. plots and return them to render
@@ -825,6 +844,10 @@ def gkps(request):
 
     return render(request, 'pages/gkps.html', context=context)
 
+
+#--------------------------------------------------------------------------------------------------------------------------
+#--------------------------------------------------------------------------------------------------------------------------
+#--------------------------------------------------------------------------------------------------------------------------
 # defs view--------------------------------------------------------------------------------------------------------------------------
 def defs(request):
     #TODO: create bokeh components for roi,home/away,etc. plots and return them to render
@@ -1126,6 +1149,10 @@ def defs(request):
 
     return render(request, 'pages/defs.html', context=context)
 
+
+#--------------------------------------------------------------------------------------------------------------------------
+#--------------------------------------------------------------------------------------------------------------------------
+#--------------------------------------------------------------------------------------------------------------------------
 # mids view--------------------------------------------------------------------------------------------------------------------------
 def mids(request):
     #TODO: create bokeh components for roi,home/away,etc. plots and return them to render
@@ -1428,8 +1455,9 @@ def mids(request):
     return render(request, 'pages/mids.html', context=context)
 
 
-
-
+#--------------------------------------------------------------------------------------------------------------------------
+#--------------------------------------------------------------------------------------------------------------------------
+#--------------------------------------------------------------------------------------------------------------------------
 # fwds view--------------------------------------------------------------------------------------------------------------------------
 def fwds(request):
     #TODO: create bokeh components for roi,home/away,etc. plots and return them to render
