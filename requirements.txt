@@ -1,6 +1,6 @@
 beautifulsoup4==4.8.0
 bokeh==1.4.0
-Django==2.2.10
+Django==2.2.22
 django-heroku==0.3.1
 gunicorn==20.0.4
 html5lib==1.0.1
